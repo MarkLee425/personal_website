@@ -1,1 +1,0 @@
-type TTheme = "dark" | "light";

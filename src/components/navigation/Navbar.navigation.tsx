@@ -1,16 +1,20 @@
 "use client";
 
 import { Link } from "react-router-dom";
-import ThemeToggleButton from "../buttons/ThemeToggle.button";
-import { Smile, ThreeDots } from "../react-icons";
+import ThemeToggleButton from "../ui/buttons/ThemeToggle.button";
+import { Smile } from "../ui/react-icons";
 import { checkState } from "../../redux/functions";
 import { ThemeColorController } from "../../controllers/ThemeColor.controller";
-import LinkedInButton from "../buttons/LinkedIn.button";
-import GitLabButton from "../buttons/GitLab.button";
-import GitHubButton from "../buttons/Github.button";
-import ThreeDotsButton from "../buttons/ThreeDots.button";
+import LinkedInButton from "../ui/buttons/LinkedIn.button";
+import GitLabButton from "../ui/buttons/GitLab.button";
+import GitHubButton from "../ui/buttons/GitHub.button";
+import ThreeDotsButton from "../ui/buttons/ThreeDots.button";
+import { useState } from "react";
+import Popup from "../ui/popup/NavigationPopup";
 
 function Navbar() {
+  const [openPopup, setOpenPopup] = useState(false);
+  const handleRemovePopUp = () => setOpenPopup(false);
   const currentTheme = checkState("theme");
   const { navigationBorderColor } = new ThemeColorController(
     currentTheme as TTheme
@@ -26,12 +30,13 @@ function Navbar() {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     e.preventDefault();
+    setOpenPopup(true);
   };
 
   return (
     <>
       <div
-        className={`flex ${navigationBorderColor} border-b-[0.5px] w-full z-30 py-3 px-5 gap-x-8 items-center font-semibold text-sm leading-6`}
+        className={`fixed flex ${navigationBorderColor} border-b-[0.5px] w-full z-30 py-3 px-5 gap-x-8 items-center font-semibold text-sm leading-6 font-sans`}
       >
         {/* ICON */}
         <Link
@@ -39,17 +44,17 @@ function Navbar() {
           id="face_ico"
           className="hover:cursor-pointer hover:text-orange-400 border-solid border-2"
         >
-          {/* TODO: change the icon */}
+          {/* TODO: change the icon */} 
           <Smile size={20} />
         </Link>
         {/* CENTERED CONTAINER */}
-        <div className="fixed px-5 items-center text-center hidden lg:flex lg:fixed lg:right-3 w-fit divide-x-2 justify-center align-middle tracking-normal">
+        <div className="fixed px-5 items-center text-center hidden lg:flex lg:fixed lg:right-3 w-fit divide-x-2 justify-center align-middle tracking-normal text-gray-400 font-medium">
           <div>
             <Link to={"/about"} className="px-3 hover:text-orange-400">
               About Me
             </Link>
-            <Link to={"/history"} className="px-3 hover:text-orange-400">
-              Employment History
+            <Link to={"/experience"} className="px-3 hover:text-orange-400">
+              Experience
             </Link>
             <Link to={"/education"} className="px-3 hover:text-orange-400">
               Education
@@ -68,9 +73,10 @@ function Navbar() {
             <GitLabButton />
           </div>
         </div>
-        <div className="fixed lg:hidden right-3">
-            <ThreeDotsButton clickHandler={buttonClickHandler}/>
+        <div className="fixed lg:hidden right-3 hover:cursor-pointer hover:text-slate-700">
+          <ThreeDotsButton clickHandler={buttonClickHandler} />
         </div>
+        <Popup openPopup={openPopup} closePopup={handleRemovePopUp} />
       </div>
     </>
   );
