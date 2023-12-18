@@ -7,7 +7,7 @@ import { Download } from "../components/ui/react-icons";
 
 const Home = () => {
   const currentTheme = checkState("theme");
-  const { primaryButtonBgColor, secondaryButtonBgColor, primaryButtonTextColor, secondaryButtonTextColor } =
+  const { primaryButtonBgColor, secondaryButtonBgColor, primaryButtonTextColor } =
     new ThemeColorController(currentTheme as TTheme).getThemeColor;
 
   return (

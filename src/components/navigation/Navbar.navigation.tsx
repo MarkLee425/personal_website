@@ -20,11 +20,11 @@ function Navbar() {
     currentTheme as TTheme
   ).getThemeColor;
 
-  const iconOnClickHandler = (
+  /* const iconOnClickHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     e.preventDefault();
-  };
+  }; */
 
   const buttonClickHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
