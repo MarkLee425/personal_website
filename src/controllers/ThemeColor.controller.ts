@@ -6,7 +6,7 @@ type ThemeProps =
   | "popupBgColor"
   | "popupTextColor"
   | "primaryButtonBgColor"
-  | "secondaryButtonBgColor" | "initiationTextColor" | "primaryButtonTextColor" | "secondaryButtonTextColor";
+  | "secondaryButtonBgColor" | "initiationTextColor" | "primaryButtonTextColor" | "secondaryButtonTextColor" | "hoverPrimaryButtonBgColor" | "hoverSecondaryButtonBgColor" | "navbarTextColor";
 
 type TThemeConfiguration = {
   [key in TTheme]: Record<ThemeProps, string>;
@@ -28,8 +28,11 @@ export class ThemeColorController {
       subTextColor: "text-[#A4A4A4]",
       primaryButtonBgColor: "bg-white",
       secondaryButtonBgColor: "bg-[#0d0d0d]",
+      hoverPrimaryButtonBgColor: "hover:bg-gray-200",
+      hoverSecondaryButtonBgColor: "hover:bg-gray-800",
       initiationTextColor: "text-orange-400",
       navigationBorderColor: "border-b-[#ACACAC]",
+      navbarTextColor: "text-gray-300",
       popupBgColor: "bg-gray-800",
       popupTextColor: "text-[#ffffff]",
     },
@@ -40,9 +43,12 @@ export class ThemeColorController {
       primaryButtonTextColor: "text-[#ffffff]",
       secondaryButtonTextColor: "text-[#000000]",
       primaryButtonBgColor: "bg-[#0d0d0d]",
-      initiationTextColor: "text-orange-400",
       secondaryButtonBgColor: "bg-white",
+      hoverPrimaryButtonBgColor: "hover:bg-gray-700",
+      hoverSecondaryButtonBgColor: "hover:bg-gray-100",
+      initiationTextColor: "text-orange-400",
       navigationBorderColor: "border-b-[#919191]",
+      navbarTextColor: "text-gray-500",
       popupBgColor: "bg-white",
       popupTextColor: "text-gray-700",
     },

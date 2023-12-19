@@ -16,7 +16,7 @@ function Navbar() {
   const [openPopup, setOpenPopup] = useState(false);
   const handleRemovePopUp = () => setOpenPopup(false);
   const currentTheme = checkState("theme");
-  const { navigationBorderColor } = new ThemeColorController(
+  const { navigationBorderColor, navbarTextColor } = new ThemeColorController(
     currentTheme as TTheme
   ).getThemeColor;
 
@@ -48,7 +48,7 @@ function Navbar() {
           <Smile size={20} />
         </Link>
         {/* CENTERED CONTAINER */}
-        <div className="fixed px-5 items-center text-center hidden lg:flex lg:fixed lg:right-3 w-fit divide-x-2 justify-center align-middle tracking-normal text-gray-400 font-medium">
+        <div className={`fixed px-5 items-center text-center hidden lg:flex lg:fixed lg:right-3 w-fit divide-x-2 justify-center align-middle tracking-normal ${navbarTextColor} font-medium`}>
           <div>
             <Link to={"/about"} className="px-3 hover:text-orange-400">
               About Me

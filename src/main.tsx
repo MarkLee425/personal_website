@@ -2,7 +2,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider as ReduxProvider } from "react-redux";
-import store from "./redux/store";
+import { persistor, store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 import Root from "./Root.tsx";
 import About from "./pages/About.tsx";
 import ThemeProvider from "./providers/Theme.provider.tsx";
@@ -44,9 +45,11 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ReduxProvider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider>
         <RouterProvider router={router} />
       </ThemeProvider>
+      </PersistGate>
     </ReduxProvider>
   </StrictMode>
 );

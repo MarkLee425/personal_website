@@ -1,14 +1,27 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { counterSliceReducer, themeSliceReducer } from "./slices";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { themeSliceReducer } from "./slices";
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-const store = configureStore({
-  reducer: {
-    counter: counterSliceReducer,
-    theme: themeSliceReducer, 
-  },
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const rootReducer = combineReducers({
+  theme: themeSliceReducer
 });
 
-export default store;
+// Implementing redux-persist to save the store state to local storage
+// To prevent losing state after reloading the page
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+});
+
+export const persistor = persistStore(store);
+
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
