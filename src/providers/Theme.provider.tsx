@@ -26,8 +26,7 @@ const ThemeProvider = ({ children, options }: TThemeProviderProps) => {
   };
 
   if (!options) {
-    // options cannot be undefined in this case
-    // @ts-ignore
+    // @ts-expect-error options cannot be undefined in this case
     updateTemporaryColor(options);
   }
   return (

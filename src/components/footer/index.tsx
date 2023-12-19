@@ -1,11 +1,12 @@
 import { ThemeColorController } from "../../controllers/ThemeColor.controller";
-import { checkState } from "../../redux/functions";
 import { INITIATION } from "../../constants";
 
-const Footer = () => {
-  const currentTheme = checkState("theme");
-  const { textColor } = new ThemeColorController(currentTheme as TTheme)
-    .getThemeColor;
+type TFooter = {
+  theme: TTheme;
+};
+
+const Footer = ({ theme }: TFooter) => {
+  const { textColor } = new ThemeColorController(theme as TTheme).getThemeColor;
   return (
     <>
       <div

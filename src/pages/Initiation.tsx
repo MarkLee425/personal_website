@@ -1,6 +1,6 @@
 import Typewriter from "typewriter-effect";
 import { INITIATION } from "../constants";
-import { checkState } from "../redux/functions";
+import { useGlobalState } from "../redux/functions";
 import { ThemeColorController } from "../controllers/ThemeColor.controller";
 
 type TInitiation = {
@@ -8,7 +8,7 @@ type TInitiation = {
 };
 
 const Initiation = ({ finishHandler = () => {} }: TInitiation) => {
-  const currentTheme = checkState("theme");
+  const currentTheme = useGlobalState("theme");
   const { initiationTextColor } = new ThemeColorController(
     currentTheme as TTheme
   ).getThemeColor;

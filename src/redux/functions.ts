@@ -1,5 +1,7 @@
 import { useAppSelector as useSelector } from "./hooks";
 import { RootState } from "./store";
 
-export const checkState = (_item: keyof RootState) =>
-  useSelector((state) => state.theme.value);
+type TItem = Exclude<keyof RootState, "_persist">
+
+export const useGlobalState = (item: TItem) =>
+  useSelector((state) => state[item].value);

@@ -7,9 +7,10 @@ export {
 } from "react-icons/md";
 export { BsThreeDotsVertical as ThreeDots } from "react-icons/bs";
 export { CiFaceSmile as Smile } from "react-icons/ci";
-export { IoIosContact as Contact, IoMdDownload as Download } from "react-icons/io";
+export { IoMdContacts as Contact, IoMdDownload as Download } from "react-icons/io";
 export { RxCross2 as Cross } from "react-icons/rx";
 export {
+  FaHome as Home,
   FaCode as Code,
   FaLinkedin as LinkedIn,
   FaGithub as GitHub,

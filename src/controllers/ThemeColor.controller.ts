@@ -15,7 +15,11 @@ type ThemeProps =
   | "navbarTextColor"
   | "navbarBgColor"
   | "leftBgColor"
-  | "descriptionTextColor";
+  | "descriptionTextColor"
+  | "floatBarBackgroundColor"
+  | "floatBarBorderColor"
+  | "floatBarButtonColor"
+  | "floatBarTextColor";
 
 type TThemeConfiguration = {
   [key in TTheme]: Record<ThemeProps, string>;
@@ -47,6 +51,10 @@ export class ThemeColorController {
       navbarBgColor: "bg-gray-900",
       popupBgColor: "bg-gray-800",
       popupTextColor: "text-[#ffffff]",
+      floatBarBackgroundColor: "bg-[#1E1E1E]",
+      floatBarBorderColor: "border-white",
+      floatBarButtonColor: "bg-white",
+      floatBarTextColor: "text-white",
     },
     light: {
       bgColor: "bg-[#ffffff]",
@@ -66,6 +74,10 @@ export class ThemeColorController {
       navbarBgColor: "bg-white",
       popupBgColor: "bg-white",
       popupTextColor: "text-gray-700",
+      floatBarBackgroundColor: "bg-white",
+      floatBarBorderColor: "border-[#C0BFBF]",
+      floatBarButtonColor: "bg-gray-300",
+      floatBarTextColor: "text-black",
     },
   };
 

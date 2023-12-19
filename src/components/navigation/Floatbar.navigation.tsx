@@ -1,24 +1,34 @@
-import Experience from "../../pages/Experience";
-import { About, Certificate, Code, Contact, Work } from "../ui/react-icons";
+import { Key } from "react";
+import { Link, To } from "react-router-dom";
+import { linkRoutes } from "./constants";
+import { ThemeColorController } from "../../controllers/ThemeColor.controller";
 
-const Floatbar = () => (
-  <div className="fixed z-30 border-2 border-white bottom-20 w-fit min-w-[100px] flex flex-row justify-between py-2 px-2 gap-x-5">
-    <button className="rounded hover:bg-white">
-      <About size={20} />
-    </button>
-    <button className="rounded hover:bg-white">
-      <Work size={20} />
-    </button>
-    <button className="rounded hover:bg-white">
-      <Certificate size={20} />
-    </button>
-    <button className="rounded hover:bg-white">
-      <Code size={20} />
-    </button>
-    <button className="rounded hover:bg-white">
-      <Contact size={20} />
-    </button>
-  </div>
-);
+type TFloatbar = {
+  pathname: string;
+  theme: TTheme;
+};
+
+const Floatbar = ({ pathname, theme }: TFloatbar) => {
+  const { floatBarBackgroundColor, floatBarBorderColor, floatBarButtonColor, floatBarTextColor } =
+    new ThemeColorController(theme as TTheme).getThemeColor;
+  return (
+    <div className={`absolute z-30 border-2 ${floatBarBorderColor} ${floatBarBackgroundColor} bottom-10 w-fit min-w-[100px] flex flex-row justify-evenly py-1 rounded-3xl px-3 gap-x-2`}>
+      {linkRoutes.map((each) => (
+        <Link
+          to={each.route as To}
+          key={each.description as Key}
+          className={`rounded-full p-2 hover:bg-gray-200 hover:text-black ${
+            pathname === each.route
+              ? `${floatBarButtonColor} orange-secondary`
+              : `bg-transparent ${floatBarTextColor}`
+          }`}
+          title={each.description as string}
+        >
+          {each.icon}
+        </Link>
+      ))}
+    </div>
+  );
+};
 
 export default Floatbar;
