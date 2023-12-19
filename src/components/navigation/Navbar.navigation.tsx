@@ -12,11 +12,11 @@ import ThreeDotsButton from "../ui/buttons/ThreeDots.button";
 import { useState } from "react";
 import Popup from "../ui/popup/NavigationPopup";
 
-function Navbar() {
+function  Navbar() {
   const [openPopup, setOpenPopup] = useState(false);
   const handleRemovePopUp = () => setOpenPopup(false);
   const currentTheme = checkState("theme");
-  const { navigationBorderColor, navbarTextColor } = new ThemeColorController(
+  const { navigationBorderColor, navbarTextColor, navbarBgColor } = new ThemeColorController(
     currentTheme as TTheme
   ).getThemeColor;
 
@@ -36,7 +36,7 @@ function Navbar() {
   return (
     <>
       <div
-        className={`fixed flex ${navigationBorderColor} border-b-[0.5px] w-full z-30 py-3 px-5 gap-x-8 items-center font-semibold text-sm leading-6 font-sans`}
+        className={`${navbarBgColor} fixed flex ${navigationBorderColor} border-b-[0.5px] w-full z-30 py-3 px-5 gap-x-8 items-center font-semibold text-sm leading-6 font-sans`}
       >
         {/* ICON */}
         <Link

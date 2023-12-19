@@ -17,19 +17,23 @@ const Initiation = ({ finishHandler = () => {} }: TInitiation) => {
       <div className={`${initiationTextColor}`}>
         <Typewriter
           options={{
-            delay: 80,
+            delay: 50,
+            deleteSpeed: 50,
             loop: true,
           }}
           onInit={(coder) => {
             coder
               .typeString(INITIATION.position[0])
-              .pauseFor(500)
-              .deleteAll(50)
+              .pauseFor(300)
+              .deleteAll()
               .typeString(INITIATION.position[1])
-              .pauseFor(500)
-              .deleteAll(50)
+              .pauseFor(300)
+              .deleteAll()
               .typeString(INITIATION.position[2])
-              .pauseFor(500)
+              .pauseFor(300)
+              .deleteAll()
+              .typeString(INITIATION.position[3])
+              .pauseFor(300)
               .callFunction(finishHandler)
               .start();
           }}
