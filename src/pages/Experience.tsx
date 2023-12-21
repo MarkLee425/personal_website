@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import { useGlobalState } from "../redux/functions";
 import { ThemeColorController } from "../controllers/ThemeColor.controller";
 import ExperienceTimeline from "../components/timeline/Experience.timeline";
+import { QUOTES } from "../utils/constants";
 
 const Experience = () => {
   const theme = useGlobalState("theme");
@@ -31,8 +32,7 @@ const Experience = () => {
             <p
               className={`flex text-xs tracking-tighter font-thin justify-center ${style.descriptionTextColor}`}
             >
-              'You cannot create experience. You must undergo it.' -- Albert
-              Camus
+              {QUOTES.experience}
             </p>
             <div
               className="mt-10 mb-20 flex justify-center"

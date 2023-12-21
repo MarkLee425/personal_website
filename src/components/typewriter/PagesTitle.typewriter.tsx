@@ -22,7 +22,7 @@ const PagesTitleTypeWriter = memo(({
       >
         <Typewriter
           options={{
-            delay: 200,
+            delay: 150,
             deleteSpeed: 50,
           }}
           onInit={(coder) => {

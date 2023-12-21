@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { TThemeProps } from "../../controllers/ThemeColor.controller";
 import PrimaryLinkButton from "../linkButtons/Primary.linkButton";
-import { Send } from "../ui/react-icons";
+import { Certificate, Download, Send } from "../ui/react-icons";
 import { educationBio } from "../../utils/constants";
 
 type TEducationTimeline = {
@@ -17,13 +17,16 @@ const EducationTimeline = ({ style }: TEducationTimeline) => {
     secondaryTextColor,
     dotSecondaryBackgroundColor,
   } = style;
+  const bioToArray = Object.entries(educationBio);
   return (
     <div className="min-[780px]:w-[50%] md:w[60%] sm:w-[70%] min-[400px]:w-[90%] min-[300px]:w-[95%] text-justify overflow-x-hidden">
       <ol className={`z-20 relative border-s ${timelineColor} h-fit`}>
         <div id="space" className="w-screen py-10" />
-        {Object.entries(educationBio).map(([, value], i) => (
+        {bioToArray.map(([key, value], i) => (
           <li
-            className={`border ${value?.end ? "" : `border-2 ${style.blockBorderColor}`} rounded-xl ms-4 mb-20 p-0.5 hover:border-none hover:animate-borderGradient hover:bg-gradient-to-r hover:from-purple-500 hover:to-orange-400 hover:bg-[length:100%_100%] hover:inline-block hover:bg-white`}
+            className={`border ${
+              value?.end ? "" : `border-2 ${style.blockBorderColor}`
+            } rounded-xl ms-4 mb-20 p-0.5 hover:border-none hover:animate-borderGradient hover:bg-gradient-to-r hover:from-purple-500 hover:to-orange-400 hover:bg-[length:100%_100%] hover:inline-block hover:bg-white`}
             key={i}
           >
             <div
@@ -39,17 +42,45 @@ const EducationTimeline = ({ style }: TEducationTimeline) => {
               >
                 {value?.end ? `${value.start}- ${value.end}` : "Present"}
               </time>
-              <p
-                className={`text-lg font-semibold ${textColor} hover:text-orange-400 w-fit flex leading-3`}
-              >
-                {value.title}
-              </p>
+              {key === "certificate" ? (
+                <p
+                  className={`text-lg font-semibold ${textColor} hover:text-orange-400 w-fit flex leading-5 justify-center align-middle items-center`}
+                >
+                  {value.title}
+                  {key === "certificate" ? (
+                    <Certificate size={20} className="ml-2 max-lg:hidden" />
+                  ) : (
+                    ""
+                  )}
+                </p>
+              ) : (
+                <Link
+                  to={value.href}
+                  className={`text-lg font-semibold ${textColor} hover:text-orange-400 w-fit flex leading-5 justify-center align-middle items-center`}
+                >
+                  {value.title}
+                  {key === "certificate" ? (
+                    <Certificate size={20} className="ml-2 max-lg:hidden" />
+                  ) : (
+                    ""
+                  )}
+                </Link>
+              )}
+
+              {value?.issued_at && (
+                <p
+                  className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5`}
+                >
+                  Issued At: {value.issued_at}
+                </p>
+              )}
+
               {value?.major && (
                 <Link
                   to={value.major.href ?? ""}
-                  className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5`}
+                  className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5 w-fit`}
                 >
-                  {value.major.name}
+                  <p>{value.major.name}</p>
                 </Link>
               )}
 
@@ -60,15 +91,22 @@ const EducationTimeline = ({ style }: TEducationTimeline) => {
                   {each}
                 </p>
               ))}
-              {value?.end ?? (
+
+              {!value?.end && (
                 <div className="flex mt-5">
                   <PrimaryLinkButton
                     style={style}
-                    to={"/skills"}
+                    download={key !== "university" ? true : false}
+                    target={key !== "university" ? "_blank" : undefined}
+                    to={
+                      key === "university"
+                        ? "/skills"
+                        : "/files/microsoft-ai900.certificate.pdf"
+                    }
                     description="View More Tech Skills"
                     element={{
-                      text: "View More",
-                      icon: <Send />,
+                      text: key === "university" ? "View More" : "Certificate",
+                      icon: key === "university" ? <Send /> : <Download />,
                     }}
                   />
                 </div>

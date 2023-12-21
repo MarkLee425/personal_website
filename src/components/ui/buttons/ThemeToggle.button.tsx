@@ -7,17 +7,14 @@ import {
 import { switchThemeMode } from "../../../redux/slices";
 import { DarkMode, LightMode } from "../react-icons";
 
-type TThemeToggleButton = {
-  options?: string;
-};
-
-const ThemeToggleButton = ({ options = "" }: TThemeToggleButton) => {
+const ThemeToggleButton = ({ ...rest }) => {
   const currentTheme = useSelector((state) => state.theme.value);
   const dispatch = useDispatch();
   return (
     <>
       <div
-        className={`ml-3 justify-center align-middle items-center flex mr-10 ${options}`}
+        className={`ml-3 justify-center align-middle items-center flex mr-10`}
+        {...rest}
       >
         {currentTheme == "light" ? (
           <button

@@ -29,7 +29,8 @@ import {
 export type TEducation = {
   title: string;
   description: string[];
-  start: string;
+  issued_at?: string;
+  start?: string;
   end?: string;
   href: string;
   major?: {
@@ -89,6 +90,16 @@ export const context: TContext = {
 };
 
 export const educationBio: TEducationBio = {
+  // TODO: certificate.length >= 5, start a new page for certificates
+  certificate: {
+    title: "Microsoft Azure AI Fundamentals Certificate",
+    description: [
+      "Through this certificate, I have learnt and acquired fundamental AI knowledge, including the ability to manage classification, regression and clustering. At the same time, I have built up a clearer overview on AI's aspect, and have a solid foundation in AI concepts and their practical implementation within the Microsoft Azure ecosystem.",
+      "By delving into topics like Machine Learning, Computer Vision, Natural Language Processing (NLP), and other ethical considerations, I have gained a comprehensive understanding of AI's potential and its ethical implications.",
+    ],
+    issued_at: "June 29 2022",
+    href: "https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-900/",
+  },
   university: {
     title: "Bachelor of Engineering | The University of Hong Kong (HKU)",
     description: [
@@ -105,7 +116,7 @@ export const educationBio: TEducationBio = {
   secondary: {
     title: "Tin Ka Ping Secondary School | Hong Kong",
     description: [
-      "I have completed the Diploma of Secondary Education in Hong Kong. I have got a total score of 26 out of 35 in my Best 6 subjects, which is quite decent result in Hong Kong.",
+      "I have completed the Diploma of Secondary Education in Hong Kong. I have got a total score of 26 / 35 in my Best 6 subjects, which is quite a decent result in Hong Kong.",
       "More importantly, throughout the school life, I have built up tremendous interest in Mathematics and logics related topics, hence Engineering was chosen as my University study.",
     ],
     start: "2012",
@@ -113,7 +124,7 @@ export const educationBio: TEducationBio = {
     href: "http://www.tkpss.edu.hk/v2/index.php",
   },
   primary: {
-    title: "Tsang Mui Millennium School",
+    title: "Tsang Mui Millennium School | Hong Kong",
     description: [
       "This is my primary school, where I have spent most of my time on studying for good results to get into secondary school with higher grade.",
       "To be honest, I have no idea why I have spent that much time only by memorizing all the keywords in every notes and books.",
@@ -130,8 +141,9 @@ export const experienceBio: TExperienceBio = {
       company: "Cathay Pacific Hackathon | Hong Kong",
       position: "Hackathon Finialist 300",
       description: [
-        "This is my primary school, where I have spent most of my time on studying for good results to get into secondary school with higher grade.",
-        "To be honest, I have no idea why I have spent that much time only by memorizing all the keywords in every notes and books.",
+        "The hackathon takes 24 hours. We are honored to pass the first-round selection from over 1000 applicants. In this hackathon, we are required to provide solutions to one of the many problems given by Cathay Pacific. We have chosen to solve the Cathay Pacific Cargo problems on efficiency and performance.",
+        "My teammates and I have decided a feasible solution for tackling the above-mentioned problem, and I mainly focus on the demonstration of our idea in the software manner. In this 24 hours, I have worked on AI analysis, backend API & Database connection and handling, and frontend dashboard, which eventually demonstrated in the final presentation. Tech Stacks used include Python, Flask, ReactJS, TailwindCSS, NumPy etc.",
+        "Unfortunately we are unable to step out and continue our journey. However, I have improved my leadering skills, communication skills and presentation skills throughout this internship, and also consolidate and utilize my technical strength (software development) in a pratical approach.",
       ],
       start: "18 Nov 2023",
       end: "19 Nov 2023",
@@ -154,8 +166,8 @@ export const experienceBio: TExperienceBio = {
       company: "JuicySuite | Hong Kong",
       position: "Developer Intern",
       description: [
-        "This is my primary school, where I have spent most of my time on studying for good results to get into secondary school with higher grade.",
-        "To be honest, I have no idea why I have spent that much time only by memorizing all the keywords in every notes and books.",
+        "I have been focusing on Backend Development using ExpressJS, NodeJS and Redis with Docker in this internship period. I have cooperated with my colleagues to integrate a brand new tailor-made workflow engine using NodeJS, Redis and BullMQ (a Redis Queuing Tool).",
+        "Also, I have also worked with different databases and work on the ETL process using dbt as transformer. Besides, I have automated the static files deployment using S3 to increase the efficiency of the whole product.",
       ],
       start: "Jul 2023",
       end: "Oct 2023",
@@ -177,8 +189,9 @@ export const experienceBio: TExperienceBio = {
       company: "iMBrace Limited | Hong Kong",
       position: "Full-Stack Software Engineer",
       description: [
-        "This is my primary school, where I have spent most of my time on studying for good results to get into secondary school with higher grade.",
-        "To be honest, I have no idea why I have spent that much time only by memorizing all the keywords in every notes and books.",
+        "Throughout this full time placement experience, I had been participating in both team projects & individual projects. I have integrated with different external CRM APIs including Odoo API, ZoHo API, Shopify API, Salesforce API etc. I have also participated on projects using OpenAI to integrate with some AI functionalities.",
+        "I have also work on a full-stack project using NextJS as an individual service by myself, which mainly participates as a business form and trigger the workflow engine with data once forms are submitted. Utilizing TypeScript, Fastify, WebSocket and Apache Kafka helps me contribute to different projects a lot.",
+        "Last but not least, I have helped dockerizing the workflow engine in order to enhance the performance of building code and deployment using Docker & Docker Compose. I have also participated in deployment to S3 and EC2 instances, which highly enhance my knowledge of AWS services.",
       ],
       start: "Jul 2022",
       end: "Sept 2023",
@@ -208,8 +221,24 @@ export const experienceBio: TExperienceBio = {
       company: "Koding Kingdom | Hong Kong",
       position: "Coding Instructor",
       description: [
-        "This is my primary school, where I have spent most of my time on studying for good results to get into secondary school with higher grade.",
-        "To be honest, I have no idea why I have spent that much time only by memorizing all the keywords in every notes and books.",
+        "In this internship, I had participated in teaching lessons for K12 students about coding using JavaScript, Python and Java. It is really fun to learn with them, and consolidate the programming skills and the overview of software development cycle.",
+        "I have also participated in researches & analysis on the Metaverse projects, and Web 3.0 projects. I have also participated on notes for Metaverse classes, Web 3.0 classes with cryptocurrency classes. It is also worth to mention that I have also finished the Microsoft AI fundamental certificate.",
+      ],
+      start: "May 2022",
+      end: "Aug 2022",
+      startMonth: 5,
+      endMonth: 8,
+      startYear: 2022,
+      endYear: 2022,
+      href: "https://kodingkingdom.com/",
+      techStack: ["JavaScript", "Python", "Java"],
+    },
+    {
+      company: "Koding Kingdom | Hong Kong",
+      position: "Coding Instructor",
+      description: [
+        "In this internship, I had participated in teaching lessons for K12 students about coding using JavaScript, Python and Java. It is really fun to learn with them, and consolidate the programming skills and the overview of software development cycle.",
+        "I have also participated in researches & analysis on the Metaverse projects, and Web 3.0 projects. I have also participated on notes for Metaverse classes, Web 3.0 classes with cryptocurrency classes. It is also worth to mention that I have also finished the Microsoft AI fundamental certificate.",
       ],
       start: "May 2022",
       end: "Aug 2022",
@@ -224,8 +253,8 @@ export const experienceBio: TExperienceBio = {
       company: "The University of Hong Kong | Hong Kong",
       position: "Engineering Trainee",
       description: [
-        "This is my primary school, where I have spent most of my time on studying for good results to get into secondary school with higher grade.",
-        "To be honest, I have no idea why I have spent that much time only by memorizing all the keywords in every notes and books.",
+        "Throughout this training, I have consolidated the knowledge of industrial technologies, utilizing with C++ & CNC programming technics. Also, I have learnt more about game development industry using Unity. I have also participated in different projects which utilize SolidWorks as a digital CAD tools to contruct 3D models.",
+        "I have also contributed to a team project and an individual project, which includes building a real smart robot from-scratch which can automatically relocate the routes that we have preseted to the robot. This is a precious practice to consolidate my knowledge of industrial engineering and programming. ",
       ],
       start: "May 2021",
       end: "Aug 2021",
@@ -367,6 +396,13 @@ export const skills: Record<
     ],
   },
 ];
+
+export const QUOTES = {
+  education:
+    '"Education is one thing no one can take away from you.” —- Elin Nordegren',
+  experience:
+    '"You cannot create experience. You must undergo it." -- Albert Camus',
+};
 
 export const MY_LINKEDIN_URL = "https://www.linkedin.com/in/marklee425";
 export const MY_GITHUB_URL = "https://github.com/MarkLee425";

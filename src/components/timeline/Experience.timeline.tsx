@@ -45,7 +45,7 @@ const EducationTimeline = memo(({ style }: TEducationTimeline) => {
               </p>
               <Link
                 to={current.href ?? ""}
-                className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5 mb-5`}
+                className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5 mb-5 w-fit`}
               >
                 {current.company}
               </Link>
@@ -94,7 +94,7 @@ const EducationTimeline = memo(({ style }: TEducationTimeline) => {
                 </p>
                 <Link
                   to={each.href ?? ""}
-                  className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5 mb-5`}
+                  className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5 mb-5 w-fit`}
                 >
                   {each.company}
                 </Link>

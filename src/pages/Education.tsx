@@ -4,6 +4,7 @@ import { useGlobalState } from "../redux/functions";
 import { ThemeColorController } from "../controllers/ThemeColor.controller";
 import EducationTimeline from "../components/timeline/Education.timeline";
 import Footer from "../components/footer";
+import { QUOTES } from "../utils/constants";
 
 const Education = () => {
   const theme = useGlobalState("theme");
@@ -35,8 +36,7 @@ const Education = () => {
             <p
               className={`flex text-xs tracking-tighter font-thin justify-center ${style.descriptionTextColor}`}
             >
-              "Education is one thing no one can take away from you.” —- Elin
-              Nordegren
+              {QUOTES.education}
             </p>
             <div className="mt-10 mb-20 flex justify-center">
               <p
