@@ -19,10 +19,17 @@ type ThemeProps =
   | "floatBarBackgroundColor"
   | "floatBarBorderColor"
   | "floatBarButtonColor"
-  | "floatBarTextColor";
+  | "floatBarTextColor"
+  | "timelineColor"
+  | "blockBorderColor"
+  | "secondaryTextColor"
+  | "hoverTextColor"
+  | "blockSecondaryBorderColor" | "dotPrimaryBackgroundColor" | "dotSecondaryBackgroundColor";
+
+export type TThemeProps = Record<ThemeProps, string>;
 
 type TThemeConfiguration = {
-  [key in TTheme]: Record<ThemeProps, string>;
+  [key in TTheme]: TThemeProps;
 };
 
 export class ThemeColorController {
@@ -34,9 +41,10 @@ export class ThemeColorController {
 
   private readonly THEME: TThemeConfiguration = {
     dark: {
-      bgColor: "bg-[#0d0d0d]",
-      leftBgColor: "bg-[#1A1A1A]",
+      bgColor: "bg-[#161616]",
+      leftBgColor: "bg-[#121212]",
       textColor: "text-[#ffffff]",
+      secondaryTextColor: "text-gray-500",
       descriptionTextColor: "text-[#D1D0D0]",
       primaryButtonTextColor: "text-[#000000]",
       secondaryButtonTextColor: "text-[#ffffff]",
@@ -46,26 +54,34 @@ export class ThemeColorController {
       hoverPrimaryButtonBgColor: "hover:bg-gray-200",
       hoverSecondaryButtonBgColor: "hover:bg-gray-800",
       initiationTextColor: "text-orange-400",
+      hoverTextColor: "text-orange-400",
       navigationBorderColor: "border-b-[#ACACAC]",
       navbarTextColor: "text-gray-300",
-      navbarBgColor: "bg-gray-900",
-      popupBgColor: "bg-gray-800",
+      navbarBgColor: "bg-[#191919]",
+      popupBgColor: "bg-[#3A3A3B]",
       popupTextColor: "text-[#ffffff]",
       floatBarBackgroundColor: "bg-[#1E1E1E]",
       floatBarBorderColor: "border-white",
       floatBarButtonColor: "bg-white",
       floatBarTextColor: "text-white",
+      timelineColor: "border-gray-300",
+      blockBorderColor: "border-gray-500",
+      blockSecondaryBorderColor: "border-gray-800",
+      dotPrimaryBackgroundColor: "bg-orange-400",
+      dotSecondaryBackgroundColor: "bg-gray-700",
     },
     light: {
       bgColor: "bg-[#ffffff]",
       leftBgColor: "bg-[#F7F2F2]",
       textColor: "text-gray-700",
+      secondaryTextColor: "text-gray-400",
       descriptionTextColor: "text-[#868686]",
       subTextColor: "text-[#828282]",
       primaryButtonTextColor: "text-[#ffffff]",
       secondaryButtonTextColor: "text-[#000000]",
       primaryButtonBgColor: "bg-[#0d0d0d]",
       secondaryButtonBgColor: "bg-white",
+      hoverTextColor: "text-orange-400",
       hoverPrimaryButtonBgColor: "hover:bg-gray-700",
       hoverSecondaryButtonBgColor: "hover:bg-gray-100",
       initiationTextColor: "text-orange-400",
@@ -78,6 +94,11 @@ export class ThemeColorController {
       floatBarBorderColor: "border-[#C0BFBF]",
       floatBarButtonColor: "bg-gray-300",
       floatBarTextColor: "text-black",
+      timelineColor: "border-gray-800",
+      blockBorderColor: "border-gray-300",
+      blockSecondaryBorderColor: "border-gray-100",
+      dotPrimaryBackgroundColor: "bg-orange-400",
+      dotSecondaryBackgroundColor: "bg-gray-200",
     },
   };
 

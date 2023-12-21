@@ -25,11 +25,11 @@ export const linkRoutes: LinkRoute[] = [
   },
   {
     description: "Skills",
-    route: "/skill",
+    route: "/skills",
     icon: <Code size={20} />,
   },
   {
-    description: "Contact Me",
+    description: "Contact",
     route: "/contact",
     icon: <Contact size={20} />,
   },

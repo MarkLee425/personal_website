@@ -1,8 +1,8 @@
-import { MY_GITLAB_URL } from "../../../constants";
+import { MY_GITLAB_URL } from "../../../utils/constants";
 import { DEFAULT_ICON_SIZE, GitLab } from "../react-icons";
-import { Link } from "react-router-dom";
+import { Link, LinkProps } from "react-router-dom";
 
-const GitLabButton = ({ size = DEFAULT_ICON_SIZE }: TButton) => {
+const GitLabButton = ({ size = DEFAULT_ICON_SIZE }: TButton & Omit<LinkProps, "to">) => {
   return (
     <>
       <Link

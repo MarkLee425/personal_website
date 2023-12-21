@@ -1,5 +1,5 @@
-import { useAppSelector as useSelector } from "../redux/hooks";
-import { ThemeColorController } from "../controllers/ThemeColor.controller";
+import { useAppSelector as useSelector } from "../../redux/hooks";
+import { ThemeColorController } from "../../controllers/ThemeColor.controller";
 
 type TChildren = JSX.Element;
 type TOptions = {
@@ -31,7 +31,11 @@ const ThemeProvider = ({ children, options }: TThemeProviderProps) => {
   }
   return (
     <>
-      <div className={`h-screen z-30 ${bgColor} ${textColor}`}>{children}</div>
+      <main
+        className={`h-[100%] min-h-screen fixed z-20 top-0 overflow-auto left-0 w-[100%] ${bgColor} ${textColor}`}
+      >
+        {children}
+      </main>
     </>
   );
 };

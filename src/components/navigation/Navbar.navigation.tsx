@@ -8,8 +8,8 @@ import LinkedInButton from "../ui/buttons/LinkedIn.button";
 import GitLabButton from "../ui/buttons/GitLab.button";
 import GitHubButton from "../ui/buttons/GitHub.button";
 import ThreeDotsButton from "../ui/buttons/ThreeDots.button";
-import { Key, useState } from "react";
-import Popup from "../ui/popup/NavigationPopup";
+import { Key, memo, useState } from "react";
+import Popup from "../ui/popup/Navigation.popup";
 import { createPortal } from "react-dom";
 import { linkRoutes } from "./constants";
 
@@ -24,7 +24,7 @@ const ButtonGroup = () => (
   </div>
 );
 
-function Navbar({ pathname, theme }: TNavbar) {
+const Navbar = memo(function Navbar({ pathname, theme }: TNavbar) {
   const [openPopup, setOpenPopup] = useState(false);
   const handleRemovePopUp = () => setOpenPopup(false);
   const { navigationBorderColor, navbarTextColor, navbarBgColor } =
@@ -93,6 +93,6 @@ function Navbar({ pathname, theme }: TNavbar) {
       </div>
     </>
   );
-}
+});
 
 export default Navbar;

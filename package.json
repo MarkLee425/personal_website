@@ -11,6 +11,11 @@
     "production": "pnpm build && pnpm start"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/lab": "5.0.0-alpha.157",
+    "@mui/material": "^5.15.1",
+    "@mui/styled-engine-sc": "6.0.0-alpha.9",
     "@reduxjs/toolkit": "^2.0.1",
     "node-emoji": "^2.1.3",
     "react": "^18.2.0",
@@ -19,6 +24,7 @@
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.20.1",
     "redux-persist": "^6.0.0",
+    "styled-components": "^6.1.2",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {

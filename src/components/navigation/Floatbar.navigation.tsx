@@ -1,4 +1,4 @@
-import { Key } from "react";
+import { Key, memo } from "react";
 import { Link, To } from "react-router-dom";
 import { linkRoutes } from "./constants";
 import { ThemeColorController } from "../../controllers/ThemeColor.controller";
@@ -8,11 +8,17 @@ type TFloatbar = {
   theme: TTheme;
 };
 
-const Floatbar = ({ pathname, theme }: TFloatbar) => {
-  const { floatBarBackgroundColor, floatBarBorderColor, floatBarButtonColor, floatBarTextColor } =
-    new ThemeColorController(theme as TTheme).getThemeColor;
+const Floatbar = memo(({ pathname, theme }: TFloatbar) => {
+  const {
+    floatBarBackgroundColor,
+    floatBarBorderColor,
+    floatBarButtonColor,
+    floatBarTextColor,
+  } = new ThemeColorController(theme as TTheme).getThemeColor;
   return (
-    <div className={`absolute z-30 border-2 ${floatBarBorderColor} ${floatBarBackgroundColor} bottom-10 w-fit min-w-[100px] flex flex-row justify-evenly py-1 rounded-3xl px-3 gap-x-2`}>
+    <div
+      className={`fixed z-30 border-2 ${floatBarBorderColor} ${floatBarBackgroundColor} bottom-10 w-fit min-w-[100px] flex flex-row justify-evenly py-1 rounded-3xl px-3 gap-x-2 max-[300px]:hidden`}
+    >
       {linkRoutes.map((each) => (
         <Link
           to={each.route as To}
@@ -29,6 +35,6 @@ const Floatbar = ({ pathname, theme }: TFloatbar) => {
       ))}
     </div>
   );
-};
+});
 
 export default Floatbar;
