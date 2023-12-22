@@ -3,7 +3,7 @@ import ContactTypeWriter from "../components/typewriter/PagesTitle.typewriter";
 import Footer from "../components/footer";
 import LinkedInButton from "../components/ui/buttons/LinkedIn.button";
 import { MY_LINKEDIN_URL } from "../utils/constants";
-import { useTheme } from "../Root";
+import { useTheme } from "../hooks";
 
 const Contact = () => {
   const { style } = useTheme();

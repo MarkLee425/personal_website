@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { context } from "../../utils/constants";
-import { useTheme } from "../../Root";
+import { useTheme } from "../../hooks";
 
 const Footer = memo(({ ...rest }: React.HTMLAttributes<HTMLDivElement>) => {
   const { style } = useTheme();

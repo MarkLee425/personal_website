@@ -3,7 +3,7 @@ import EducationTypeWriter from "../components/typewriter/PagesTitle.typewriter"
 import EducationTimeline from "../components/timeline/Education.timeline";
 import Footer from "../components/footer";
 import { QUOTES } from "../utils/constants";
-import { useTheme } from "../Root";
+import { useTheme } from "../hooks";
 
 const Education = () => {
   const { style } = useTheme();

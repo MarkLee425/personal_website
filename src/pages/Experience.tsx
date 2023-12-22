@@ -3,7 +3,7 @@ import ExperienceTypeWriter from "../components/typewriter/PagesTitle.typewriter
 import Footer from "../components/footer";
 import ExperienceTimeline from "../components/timeline/Experience.timeline";
 import { QUOTES } from "../utils/constants";
-import { useTheme } from "../Root";
+import { useTheme } from "../hooks";
 
 const Experience = () => {
   const { style } = useTheme();

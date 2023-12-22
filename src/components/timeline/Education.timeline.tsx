@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PrimaryLinkButton from "../linkButtons/Primary.linkButton";
 import { Certificate, Download, Send } from "../ui/react-icons";
 import { educationBio } from "../../utils/constants";
-import { useTheme } from "../../Root";
+import { useTheme } from "../../hooks";
 
 const EducationTimeline = () => {
   const { style } = useTheme();

@@ -1,6 +1,6 @@
 import { Link, LinkProps, To } from "react-router-dom";
 import { ReactNode, memo } from "react";
-import { useTheme } from "../../Root";
+import { useTheme } from "../../hooks";
 
 type TElement = {
   text?: string;

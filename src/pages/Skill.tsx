@@ -3,7 +3,7 @@ import SkillTypeWriter from "../components/typewriter/PagesTitle.typewriter";
 import Footer from "../components/footer";
 import { skills } from "../utils/constants";
 import CategoriesButton from "../components/ui/buttons/Categories.button";
-import { useTheme } from "../Root";
+import { useTheme } from "../hooks";
 
 const Skill = () => {
   const { style } = useTheme();
@@ -37,11 +37,13 @@ const Skill = () => {
                       {each.title as string}
                     </h1>
                     <div className="container flex flex-wrap justify-center gap-3 mb-8 mt-6 px-5 items-center align-middle justify-items-center">
-                      {(each.skills as any[]).map((skill) => (
+                      {(
+                        each.skills as Record<string, string | JSX.Element>[]
+                      ).map((skill) => (
                         <CategoriesButton
-                          key={skill.name}
-                          name={skill.name}
-                          icon={skill.image}
+                          key={skill.name as string}
+                          name={skill.name as string}
+                          icon={skill.image as JSX.Element}
                           style={style}
                         />
                       ))}

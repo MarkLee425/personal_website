@@ -4,10 +4,10 @@ import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import { LinkTab as Tab } from "../components/ui/tab/Tab";
 import Footer from "../components/footer";
-import { useTheme } from "../Root";
+// import { useTheme } from "../hooks";
 
 const About = () => {
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
   const finishTyping = () => setIsTyping(false);
   const [value, setValue] = useState(0);

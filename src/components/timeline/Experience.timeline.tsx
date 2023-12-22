@@ -3,7 +3,7 @@ import PrimaryLinkButton from "../linkButtons/Primary.linkButton";
 import { Send } from "../ui/react-icons";
 import { experienceBio } from "../../utils/constants";
 import { memo } from "react";
-import { useTheme } from "../../Root";
+import { useTheme } from "../../hooks";
 
 const EducationTimeline = memo(() => {
   const { style } = useTheme();

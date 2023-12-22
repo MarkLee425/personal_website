@@ -4,7 +4,7 @@ import { Download } from "../components/ui/react-icons";
 import Footer from "../components/footer";
 import SecondaryLinkButton from "../components/linkButtons/Secondary.linkButton";
 import PrimaryLinkButton from "../components/linkButtons/Primary.linkButton";
-import { useTheme } from "../Root";
+import { useTheme } from "../hooks";
 
 const Home = () => {
   const { style } = useTheme();
