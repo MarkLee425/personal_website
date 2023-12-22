@@ -4,8 +4,6 @@ import Footer from "../components/footer";
 import { useGlobalState } from "../redux/functions";
 import { ThemeColorController } from "../controllers/ThemeColor.controller";
 import LinkedInButton from "../components/ui/buttons/LinkedIn.button";
-import EmailButton from "../components/ui/buttons/Email.button";
-import { Snippet } from "@nextui-org/react";
 import { MY_LINKEDIN_URL } from "../utils/constants";
 
 const Contact = () => {
