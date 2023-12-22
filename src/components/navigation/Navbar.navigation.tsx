@@ -3,7 +3,6 @@
 import { Link, To } from "react-router-dom";
 import ThemeToggleButton from "../ui/buttons/ThemeToggle.button";
 import { Smile } from "../ui/react-icons";
-import { ThemeColorController } from "../../controllers/ThemeColor.controller";
 import LinkedInButton from "../ui/buttons/LinkedIn.button";
 import GitLabButton from "../ui/buttons/GitLab.button";
 import GitHubButton from "../ui/buttons/GitHub.button";
@@ -12,8 +11,9 @@ import { Key, memo, useState } from "react";
 import Popup from "../ui/popup/Navigation.popup";
 import { createPortal } from "react-dom";
 import { linkRoutes } from "./constants";
+import { TThemeProps } from "../../controllers/ThemeColor.controller";
 
-type TNavbar = { pathname: string; theme: TTheme };
+type TNavbar = { pathname: string; style: TThemeProps };
 
 const ButtonGroup = () => (
   <div className="ml-10 flex space-x-3 align-middle">
@@ -24,12 +24,9 @@ const ButtonGroup = () => (
   </div>
 );
 
-const Navbar = memo(function Navbar({ pathname, theme }: TNavbar) {
+const Navbar = memo(function Navbar({ pathname, style }: TNavbar) {
   const [openPopup, setOpenPopup] = useState(false);
   const handleRemovePopUp = () => setOpenPopup(false);
-  const { navigationBorderColor, navbarTextColor, navbarBgColor } =
-    new ThemeColorController(theme as TTheme).getThemeColor;
-
   const buttonClickHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -40,7 +37,7 @@ const Navbar = memo(function Navbar({ pathname, theme }: TNavbar) {
   return (
     <>
       <div
-        className={`${navbarBgColor} fixed flex ${navigationBorderColor} border-b-[0.5px] w-full z-30 py-3 px-5 gap-x-8 items-center font-semibold text-sm leading-6 font-sans`}
+        className={`${style.navbarBgColor} fixed flex ${style.navigationBorderColor} border-b-[0.5px] w-full z-30 py-3 px-5 gap-x-8 items-center font-semibold text-sm leading-6 font-sans`}
       >
         {/* ICON */}
         <Link
@@ -52,7 +49,7 @@ const Navbar = memo(function Navbar({ pathname, theme }: TNavbar) {
           <Smile size={20} />
         </Link>
         <div
-          className={`fixed px-5 items-center text-center hidden lg:flex lg:fixed lg:right-3 w-fit divide-x-2 justify-center align-middle tracking-normal ${navbarTextColor} font-medium`}
+          className={`fixed px-5 items-center text-center hidden lg:flex lg:fixed lg:right-3 w-fit divide-x-2 justify-center align-middle tracking-normal ${style.navbarTextColor} font-medium`}
         >
           {/* Navlinks */}
           <div className="navlink">
@@ -65,7 +62,7 @@ const Navbar = memo(function Navbar({ pathname, theme }: TNavbar) {
                   className={`${
                     pathname === each.route
                       ? "text-orange-400"
-                      : navbarTextColor
+                      : style.navbarTextColor
                   } px-3 hover:text-orange-400`}
                   title={each.description as string}
                 >

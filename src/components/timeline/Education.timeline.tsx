@@ -1,50 +1,40 @@
 import { Link } from "react-router-dom";
-import { TThemeProps } from "../../controllers/ThemeColor.controller";
 import PrimaryLinkButton from "../linkButtons/Primary.linkButton";
 import { Certificate, Download, Send } from "../ui/react-icons";
 import { educationBio } from "../../utils/constants";
+import { useTheme } from "../../Root";
 
-type TEducationTimeline = {
-  style: TThemeProps;
-};
-
-const EducationTimeline = ({ style }: TEducationTimeline) => {
-  const {
-    textColor,
-    descriptionTextColor,
-    subTextColor,
-    timelineColor,
-    secondaryTextColor,
-    dotSecondaryBackgroundColor,
-  } = style;
+const EducationTimeline = () => {
+  const { style } = useTheme();
   const bioToArray = Object.entries(educationBio);
   return (
     <div className="min-[780px]:w-[50%] md:w[60%] sm:w-[70%] min-[400px]:w-[90%] min-[300px]:w-[95%] text-justify overflow-x-hidden">
-      <ol className={`z-20 relative border-s ${timelineColor} h-fit`}>
+      <ol className={`z-20 relative border-s ${style.timelineColor} h-fit`}>
         <div id="space" className="w-screen py-10" />
         {bioToArray.map(([key, value], i) => (
           <li
             className={`border ${
               value?.end ? "" : `border-2 ${style.blockBorderColor}`
-            } rounded-xl ms-4 mb-20 p-0.5 hover:border-none hover:animate-borderGradient hover:bg-gradient-to-r hover:from-purple-500 hover:to-orange-400 hover:bg-[length:100%_100%] hover:inline-block hover:bg-white`}
+            } min-[1350px]:blur-[3px] hover:blur-none rounded-xl ms-4 mb-20 p-0.5 hover:border-none hover:animate-borderGradient hover:bg-gradient-to-r hover:from-purple-500 hover:to-orange-400 hover:bg-[length:100%_100%] hover:inline-block hover:bg-white`}
             key={i}
           >
             <div
               className={`${style.bgColor} rounded-xl block pt-5 pb-8 pl-5 pr-8 h-full w-full`}
             >
               <div
-                className={`z-30 absolute p-1.5 rounded-full mt-1.5 -start-1.5 border ${dotSecondaryBackgroundColor}`}
+                className={`z-30 absolute p-1.5 rounded-full mt-1.5 -start-1.5 border ${style.dotSecondaryBackgroundColor}`}
               />
               <time
                 className={`mb-4 text-sm font-normal leading-none ${
-                  value?.end ? secondaryTextColor : "text-orange-500"
+                  value?.end ? style.secondaryTextColor : "text-orange-500"
                 } hover:text-orange-400 flex`}
               >
                 {value?.end ? `${value.start}- ${value.end}` : "Present"}
               </time>
               {key === "certificate" ? (
-                <p
-                  className={`text-lg font-semibold ${textColor} hover:text-orange-400 w-fit flex leading-5 justify-center align-middle items-center`}
+                <Link
+                to={value.href}
+                  className={`text-lg font-semibold ${style.textColor} hover:text-orange-400 w-fit flex leading-5 justify-center align-middle items-center`}
                 >
                   {value.title}
                   {key === "certificate" ? (
@@ -52,11 +42,11 @@ const EducationTimeline = ({ style }: TEducationTimeline) => {
                   ) : (
                     ""
                   )}
-                </p>
+                </Link>
               ) : (
                 <Link
                   to={value.href}
-                  className={`text-lg font-semibold ${textColor} hover:text-orange-400 w-fit flex leading-5 justify-center align-middle items-center`}
+                  className={`text-lg font-semibold ${style.textColor} hover:text-orange-400 w-fit flex leading-5 justify-center align-middle items-center`}
                 >
                   {value.title}
                   {key === "certificate" ? (
@@ -69,7 +59,7 @@ const EducationTimeline = ({ style }: TEducationTimeline) => {
 
               {value?.issued_at && (
                 <p
-                  className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5`}
+                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5`}
                 >
                   Issued At: {value.issued_at}
                 </p>
@@ -78,7 +68,7 @@ const EducationTimeline = ({ style }: TEducationTimeline) => {
               {value?.major && (
                 <Link
                   to={value.major.href ?? ""}
-                  className={`text-xs font-thin ${subTextColor} hover:text-orange-400 flex mt-1.5 w-fit`}
+                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 w-fit`}
                 >
                   <p>{value.major.name}</p>
                 </Link>
@@ -86,7 +76,8 @@ const EducationTimeline = ({ style }: TEducationTimeline) => {
 
               {value.description.map((each) => (
                 <p
-                  className={`text-justify font-normal text-sm ${descriptionTextColor} mt-5 mb-1.5`}
+                  className={`text-justify font-normal text-sm ${style.descriptionTextColor} mt-5 mb-1.5`}
+                  key={each}
                 >
                   {each}
                 </p>
@@ -95,7 +86,6 @@ const EducationTimeline = ({ style }: TEducationTimeline) => {
               {!value?.end && (
                 <div className="flex mt-5">
                   <PrimaryLinkButton
-                    style={style}
                     download={key !== "university" ? true : false}
                     target={key !== "university" ? "_blank" : undefined}
                     to={

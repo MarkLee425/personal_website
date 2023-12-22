@@ -1,6 +1,6 @@
 import { Link, LinkProps, To } from "react-router-dom";
-import { TThemeProps } from "../../controllers/ThemeColor.controller";
 import { ReactNode, memo } from "react";
+import { useTheme } from "../../Root";
 
 type TElement = {
   text?: string;
@@ -8,14 +8,14 @@ type TElement = {
 };
 
 type TPrimaryLinkButton = {
-  style: TThemeProps;
   to: To;
   description?: string;
   element: TElement;
 };
 
 const PrimaryLinkButton = memo((props: TPrimaryLinkButton & LinkProps) => {
-  const { style, to, description, element, ...rest } = props;
+  const { to, description, element, ...rest } = props;
+  const { style } = useTheme();
   return (
     <>
       <Link

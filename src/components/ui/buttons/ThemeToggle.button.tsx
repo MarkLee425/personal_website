@@ -1,5 +1,3 @@
-"use client";
-
 import {
   useAppDispatch as useDispatch,
   useAppSelector as useSelector,

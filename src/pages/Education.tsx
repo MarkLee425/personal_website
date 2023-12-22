@@ -1,14 +1,12 @@
 import { useState } from "react";
 import EducationTypeWriter from "../components/typewriter/PagesTitle.typewriter";
-import { useGlobalState } from "../redux/functions";
-import { ThemeColorController } from "../controllers/ThemeColor.controller";
 import EducationTimeline from "../components/timeline/Education.timeline";
 import Footer from "../components/footer";
 import { QUOTES } from "../utils/constants";
+import { useTheme } from "../Root";
 
 const Education = () => {
-  const theme = useGlobalState("theme");
-  const style = new ThemeColorController(theme as TTheme).getThemeColor;
+  const { style } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
   const [isHover, setIsHover] = useState(false);
   const finishTyping = () => {
@@ -61,9 +59,9 @@ const Education = () => {
             </div>
 
             <div className="flex justify-center">
-              <EducationTimeline style={style} />
+              <EducationTimeline />
             </div>
-            {<Footer theme={theme} />}
+            {<Footer />}
           </div>
         )}
       </div>

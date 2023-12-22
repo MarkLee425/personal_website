@@ -51,6 +51,7 @@ export {
   SiApachekafka as Kafka,
   SiSocketdotio as WebSocket,
   SiKubernetes as Kubernetes,
+  SiLerna as Lerna,
 } from "react-icons/si";
 export { BiLogoPostgresql as PostgreeSQL } from "react-icons/bi";
 

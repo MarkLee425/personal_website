@@ -24,6 +24,9 @@ import {
   Redis,
   Cpp,
   Unity,
+  Frontend,
+  Backend,
+  Database,
 } from "../../components/ui/react-icons";
 
 export type TEducation = {
@@ -234,22 +237,6 @@ export const experienceBio: TExperienceBio = {
       techStack: ["JavaScript", "Python", "Java"],
     },
     {
-      company: "Koding Kingdom | Hong Kong",
-      position: "Coding Instructor",
-      description: [
-        "In this internship, I had participated in teaching lessons for K12 students about coding using JavaScript, Python and Java. It is really fun to learn with them, and consolidate the programming skills and the overview of software development cycle.",
-        "I have also participated in researches & analysis on the Metaverse projects, and Web 3.0 projects. I have also participated on notes for Metaverse classes, Web 3.0 classes with cryptocurrency classes. It is also worth to mention that I have also finished the Microsoft AI fundamental certificate.",
-      ],
-      start: "May 2022",
-      end: "Aug 2022",
-      startMonth: 5,
-      endMonth: 8,
-      startYear: 2022,
-      endYear: 2022,
-      href: "https://kodingkingdom.com/",
-      techStack: ["JavaScript", "Python", "Java"],
-    },
-    {
       company: "The University of Hong Kong | Hong Kong",
       position: "Engineering Trainee",
       description: [
@@ -270,116 +257,123 @@ export const experienceBio: TExperienceBio = {
 
 export const skills: Record<
   string,
-  string | Record<string, string | JSX.Element>[]
+  string | JSX.Element | Record<string, string | JSX.Element>[]
 >[] = [
   {
     title: "Frontend",
+    icon: <Frontend />,
     skills: [
       {
         name: "ReactJS",
-        image: <ReactJS />,
+        image: <ReactJS size={25} />,
       },
       {
         name: "Redux",
-        image: <Redux />,
+        image: <Redux size={25} />,
       },
       {
         name: "NextJS",
-        image: <NextJS />,
+        image: <NextJS size={25} />,
       },
       {
         name: "JavaScript",
-        image: <Javascript />,
+        image: <Javascript size={25} />,
       },
       {
         name: "TypeScript",
-        image: <Typescript />,
+        image: <Typescript size={25} />,
       },
       {
         name: "Material UI",
-        image: <Mui />,
+        image: <Mui size={25} />,
       },
       {
         name: "Tailwind CSS",
-        image: <TailwindCSS />,
+        image: <TailwindCSS size={25} />,
       },
     ],
   },
   {
     title: "Backend",
+    icon: <Backend />,
     skills: [
       {
         name: "NodeJS",
-        image: <NodeJS />,
-      },
-      {
-        name: "Golang",
-        image: <Golang />,
-      },
-      {
-        name: "WebSocket",
-        image: <WebSocket />,
-      },
-      {
-        name: "Java Sprint Boot",
-        image: <Java />,
-      },
-      {
-        name: "Python",
-        image: <Python />,
-      },
-      {
-        name: "MySQL",
-        image: <MySQL />,
-      },
-      {
-        name: "Postgresql",
-        image: <PostgreeSQL />,
-      },
-      {
-        name: "MongoDB",
-        image: <MongoDB />,
-      },
-      {
-        name: "Apache Kafka",
-        image: <Kafka />,
+        image: <NodeJS size={25} />,
       },
       {
         name: "ExpressJS",
-        image: <ExpressJS />,
+        image: <ExpressJS size={25} />,
       },
       {
         name: "Fastify",
-        image: <Fastify />,
+        image: <Fastify size={25} />,
       },
       {
-        name: "Redis",
-        image: <Redis />,
+        name: "Golang",
+        image: <Golang size={25} />,
+      },
+      {
+        name: "SprintBoot",
+        image: <Java size={25} />,
+      },
+      {
+        name: "Python",
+        image: <Python size={25} />,
       },
       {
         name: "C++",
-        image: <Cpp />,
+        image: <Cpp size={25} />,
+      },
+      {
+        name: "WebSocket",
+        image: <WebSocket size={25} />,
+      },
+      {
+        name: "Apache Kafka",
+        image: <Kafka size={25} />,
       },
     ],
+  },{
+    title: "Data Related",
+    icon: <Database />,
+    skills: [
+      {
+        name: "MySQL",
+        image: <MySQL size={25} />,
+      },
+      {
+        name: "Postgresql",
+        image: <PostgreeSQL size={25} />,
+      },
+      {
+        name: "MongoDB",
+        image: <MongoDB size={25} />,
+      },
+      {
+        name: "Redis",
+        image: <Redis size={25} />,
+      },
+    ]
   },
   {
     title: "Others",
     skills: [
       {
         name: "Docker",
-        image: <Docker />,
+        image: <Docker size={25} />,
       },
       {
         name: "Kubernetes",
-        image: <Kubernetes />,
+        image: <Kubernetes size={25} />,
       },
       {
         name: "AWS",
-        image: <AWS />,
+        image: <AWS size={25} />,
       },
       {
         name: "Unity",
-        image: <Unity />,
+        image: <Unity size={25} />,
       },
       {
         name: "SolidWorks",

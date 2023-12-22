@@ -18,7 +18,7 @@ const PagesTitleTypeWriter = memo(({
   return (
     <>
       <div
-        className={`${textColor} font-extrabold font-serif text-6xl max-[350px]:text-4xl cursor-default`}
+        className={`${textColor} font-extrabold font-serif text-6xl max-[400px]:text-4xl cursor-default`}
       >
         <Typewriter
           options={{

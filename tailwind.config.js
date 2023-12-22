@@ -12,6 +12,7 @@ export default {
         fade: "fade 1.5s cubic-bezier(0.4, 0, 0.6, 1)",
         fadeColor: "fadeColor 1.5 cubic-bezier(0.4, 0, 0.6, 1)",
         borderGradient: "border 4s ease infinite",
+        customPulse: "customPulse 1.5s infinite;",
       },
       keyframes: (theme) => ({
         fade: {
@@ -20,6 +21,14 @@ export default {
           },
           to: {
             opacity: 1,
+          },
+        },
+        customPulse: {
+          "0%, 100%": {
+            opacity: 1,
+          },
+          "50%": {
+            opacity: 0.7,
           },
         },
       }),

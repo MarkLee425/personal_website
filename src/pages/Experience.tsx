@@ -1,14 +1,12 @@
 import { useState } from "react";
 import ExperienceTypeWriter from "../components/typewriter/PagesTitle.typewriter";
 import Footer from "../components/footer";
-import { useGlobalState } from "../redux/functions";
-import { ThemeColorController } from "../controllers/ThemeColor.controller";
 import ExperienceTimeline from "../components/timeline/Experience.timeline";
 import { QUOTES } from "../utils/constants";
+import { useTheme } from "../Root";
 
 const Experience = () => {
-  const theme = useGlobalState("theme");
-  const style = new ThemeColorController(theme as TTheme).getThemeColor;
+  const { style } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
   const [isHover, setIsHover] = useState(false);
   const finishTyping = () => setIsTyping(false);
@@ -66,9 +64,9 @@ const Experience = () => {
             </div>
 
             <div className="flex justify-center">
-              <ExperienceTimeline style={style} />
+              <ExperienceTimeline />
             </div>
-            <Footer theme={theme} />
+            <Footer />
           </div>
         )}
       </div>

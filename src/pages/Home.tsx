@@ -1,15 +1,13 @@
 import { context } from "../utils/constants";
 import Initiation from "../components/typewriter/Initiation.typewriter";
-import { useGlobalState } from "../redux/functions";
-import { ThemeColorController } from "../controllers/ThemeColor.controller";
 import { Download } from "../components/ui/react-icons";
 import Footer from "../components/footer";
 import SecondaryLinkButton from "../components/linkButtons/Secondary.linkButton";
 import PrimaryLinkButton from "../components/linkButtons/Primary.linkButton";
+import { useTheme } from "../Root";
 
 const Home = () => {
-  const theme = useGlobalState("theme");
-  const style = new ThemeColorController(theme as TTheme).getThemeColor;
+  const { style } = useTheme();
 
   return (
     <>
@@ -28,14 +26,12 @@ const Home = () => {
             <div className="row center gap-x-3 transition-opacity ease-in duration-700">
               <PrimaryLinkButton
                 to="about"
-                style={style}
                 description="Get Started"
                 element={{text: "Get Started"}}
               />
               <SecondaryLinkButton
                 to="/files/resume_LeeHoKwong.pdf"
                 description="Resume"
-                style={style}
                 download={true}
                 target="_blank"
                 element={{
@@ -47,7 +43,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer theme={theme} />
+      <Footer  />
     </>
   );
 };

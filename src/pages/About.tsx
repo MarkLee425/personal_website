@@ -2,23 +2,19 @@ import { useState } from "react";
 import AboutTypeWriter from "../components/typewriter/PagesTitle.typewriter";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
-import {
-  LinkTab as Tab,
-} from "../components/ui/tab/Tab";
+import { LinkTab as Tab } from "../components/ui/tab/Tab";
 import Footer from "../components/footer";
-import { useGlobalState } from "../redux/functions";
+import { useTheme } from "../Root";
 
 const About = () => {
-  const theme = useGlobalState("theme");
+  const { theme } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
   const finishTyping = () => setIsTyping(false);
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     // event.type can be equal to focus with selectionFollowsFocus.
-    if (
-      event.type !== "click"
-    ) {
+    if (event.type !== "click") {
       setValue(newValue);
     }
   };
@@ -50,7 +46,7 @@ const About = () => {
           </div>
         )}
       </div>
-      <Footer theme={theme} />
+      <Footer  />
     </>
   );
 };
