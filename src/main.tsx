@@ -5,7 +5,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { persistor, store } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import Root from "./Root.tsx";
-import About from "./pages/About.1.tsx";
+import About from "./pages/About.tsx";
 import ThemeProvider from "./utils/providers/Theme.provider.tsx";
 import "./index.css";
 import Home from "./pages/Home.tsx";
