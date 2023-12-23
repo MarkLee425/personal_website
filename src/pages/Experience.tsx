@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ExperienceTypeWriter from "../components/typewriter/PagesTitle.typewriter";
 import Footer from "../components/footer";
 import ExperienceTimeline from "../components/timeline/Experience.timeline";
@@ -9,8 +9,8 @@ const Experience = () => {
   const { style } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
   const [isHover, setIsHover] = useState(false);
-  const finishTyping = () => setIsTyping(false);
-
+  const finishTyping = useCallback(() => setIsTyping(false), [setIsTyping]);
+  
   return (
     <>
       <div className="mt-48 overflow-x-hidden">

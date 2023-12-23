@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import EducationTypeWriter from "../components/typewriter/PagesTitle.typewriter";
 import EducationTimeline from "../components/timeline/Education.timeline";
 import Footer from "../components/footer";
@@ -9,10 +9,8 @@ const Education = () => {
   const { style } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
   const [isHover, setIsHover] = useState(false);
-  const finishTyping = () => {
-    setIsTyping(false);
-  };
-
+  const finishTyping = useCallback(() => setIsTyping(false), [setIsTyping]);
+  
   return (
     <>
       <div className="mt-48 overflow-x-hidden">

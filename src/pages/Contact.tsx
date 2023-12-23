@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ContactTypeWriter from "../components/typewriter/PagesTitle.typewriter";
 import Footer from "../components/footer";
 import LinkedInButton from "../components/ui/buttons/LinkedIn.button";
@@ -8,8 +8,8 @@ import { useTheme } from "../hooks";
 const Contact = () => {
   const { style } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
-  const finishTyping = () => setIsTyping(false);
-
+  const finishTyping = useCallback(() => setIsTyping(false), [setIsTyping]);
+  
   return (
     <>
       <div className="mt-24 overflow-x-hidden text-center">

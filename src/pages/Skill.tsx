@@ -8,10 +8,7 @@ import { useTheme } from "../hooks";
 const Skill = () => {
   const { style } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
-  const finishTyping = useCallback(() => {
-    setIsTyping(false);
-    console.log("setting");
-  }, [setIsTyping]);
+  const finishTyping = useCallback(() => setIsTyping(false), [setIsTyping]);
 
   return (
     <>

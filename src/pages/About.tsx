@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import AboutTypeWriter from "../components/typewriter/PagesTitle.typewriter";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
@@ -9,7 +9,7 @@ import Footer from "../components/footer";
 const About = () => {
   // const { theme } = useTheme();
   const [isTyping, setIsTyping] = useState(true);
-  const finishTyping = () => setIsTyping(false);
+  const finishTyping = useCallback(() => setIsTyping(false), [setIsTyping]);
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {

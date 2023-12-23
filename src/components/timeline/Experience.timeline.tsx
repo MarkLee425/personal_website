@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import PrimaryLinkButton from "../linkButtons/Primary.linkButton";
 import { Send } from "../ui/react-icons";
 import { experienceBio } from "../../utils/constants";
-import { memo } from "react";
 import { useTheme } from "../../hooks";
 
-const EducationTimeline = memo(() => {
+const EducationTimeline = () => {
   const { style } = useTheme();
   const { current, past } = experienceBio;
   return (
@@ -101,6 +100,6 @@ const EducationTimeline = memo(() => {
       </ol>
     </div>
   );
-});
+};
 
 export default EducationTimeline;
