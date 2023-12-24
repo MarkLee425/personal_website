@@ -14,11 +14,13 @@ import Skill from "./pages/Skill";
 import Contact from "./pages/Contact.tsx";
 import Education from "./pages/Education.tsx";
 import Projects from "./pages/Projects.tsx";
+import ErrorPage from "./pages/Error.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

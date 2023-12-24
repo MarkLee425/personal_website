@@ -41,13 +41,13 @@ const Education = () => {
                 My educational journey has been a transformative experience,
                 marked by{" "}
                 <strong
-                  className={isHover ? "text-orange-400" : style.textColor}
+                  className={`${isHover ? "text-orange-400" : style.textColor} max-[1350px]:text-orange-400`}
                 >
                   discipline
                 </strong>{" "}
                 &{" "}
                 <strong
-                  className={isHover ? "text-orange-400" : style.textColor}
+                  className={`${isHover ? "text-orange-400" : style.textColor} max-[1350px]:text-orange-400`}
                 >
                   personal growth
                 </strong>

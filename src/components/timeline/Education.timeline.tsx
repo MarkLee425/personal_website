@@ -59,7 +59,7 @@ const EducationTimeline = () => {
 
               {value?.issued_at && (
                 <p
-                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5`}
+                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 ${value?.major ? "" : "mb-2"}`}
                 >
                   Issued At: {value.issued_at}
                 </p>
@@ -68,7 +68,7 @@ const EducationTimeline = () => {
               {value?.major && (
                 <Link
                   to={value.major.href ?? ""}
-                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 w-fit`}
+                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 w-fit mb-2`}
                 >
                   <p>{value.major.name}</p>
                 </Link>
@@ -76,7 +76,7 @@ const EducationTimeline = () => {
 
               {value.description.map((each) => (
                 <p
-                  className={`text-justify font-normal text-sm ${style.descriptionTextColor} mt-5 mb-1.5`}
+                  className={`text-justify font-normal text-sm ${style.descriptionTextColor} pt-3`}
                   key={each}
                 >
                   {each}

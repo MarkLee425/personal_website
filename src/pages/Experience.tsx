@@ -10,7 +10,7 @@ const Experience = () => {
   const [isTyping, setIsTyping] = useState(true);
   const [isHover, setIsHover] = useState(false);
   const finishTyping = useCallback(() => setIsTyping(false), [setIsTyping]);
-  
+
   return (
     <>
       <div className="mt-48 overflow-x-hidden">
@@ -43,19 +43,25 @@ const Experience = () => {
                 With the variety of experience being a skilled software
                 engineer, I am dedicated to creating{" "}
                 <strong
-                  className={isHover ? "text-orange-400" : style.textColor}
+                  className={`${
+                    isHover ? "text-orange-400" : style.textColor
+                  } max-[1350px]:text-orange-400`}
                 >
                   robust
                 </strong>{" "}
                 and{" "}
                 <strong
-                  className={isHover ? "text-orange-400" : style.textColor}
+                  className={`${
+                    isHover ? "text-orange-400" : style.textColor
+                  } max-[1350px]:text-orange-400`}
                 >
                   efficient
                 </strong>{" "}
                 solutions, and also obsessed with{" "}
                 <strong
-                  className={isHover ? "text-orange-400" : style.textColor}
+                  className={`${
+                    isHover ? "text-orange-400" : style.textColor
+                  } max-[1350px]:text-orange-400`}
                 >
                   elegant coding style
                 </strong>{" "}

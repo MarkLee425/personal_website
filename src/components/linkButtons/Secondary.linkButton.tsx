@@ -22,7 +22,7 @@ const SecondaryLinkButton = memo(
           {...rest}
           to={to}
           aria-describedby={description}
-          className={`border-[1px] border-gray w-fit rounded-md px-3 py-1.5 text-sm ${style.secondaryButtonBgColor} ${style.secondaryButtonBgColor} font-normal tracking-wider flex items-center align-middle ${style.hoverSecondaryButtonBgColor}`}
+          className={`border-[1px] border-gray w-fit rounded-md px-2.5 py-1 text-sm ${style.secondaryButtonBgColor} ${style.secondaryButtonBgColor} font-normal tracking-wider flex items-center align-middle ${style.hoverSecondaryButtonBgColor}`}
         >
           {element?.text && <p>{element.text}</p>}
           {element?.icon && <div className="ml-1">{element.icon}</div>}

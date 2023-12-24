@@ -33,13 +33,13 @@ const EducationTimeline = () => {
               </p>
               <Link
                 to={current.href ?? ""}
-                className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 mb-5 w-fit`}
+                className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 mb-2 w-fit`}
               >
                 {current.company}
               </Link>
               {current.description.map((description) => (
                 <p
-                  className={`text-justify font-normal text-sm ${style.descriptionTextColor} mb-1.5`}
+                  className={`text-justify font-normal text-sm ${style.descriptionTextColor} pt-3`}
                 >
                   {description}
                 </p>
@@ -81,13 +81,13 @@ const EducationTimeline = () => {
                 </p>
                 <Link
                   to={each.href ?? ""}
-                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 mb-5 w-fit`}
+                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 mb-2 w-fit`}
                 >
                   {each.company}
                 </Link>
                 {each.description.map((description) => (
                   <p
-                    className={`text-justify font-normal text-sm ${style.descriptionTextColor} mb-1.5`}
+                    className={`text-justify font-normal text-sm ${style.descriptionTextColor} pt-3`}
                     key={description}
                   >
                     {description}

@@ -334,7 +334,8 @@ export const skills: Record<
         image: <Kafka size={25} />,
       },
     ],
-  },{
+  },
+  {
     title: "Data Related",
     icon: <Database />,
     skills: [
@@ -354,7 +355,7 @@ export const skills: Record<
         name: "Redis",
         image: <Redis size={25} />,
       },
-    ]
+    ],
   },
   {
     title: "Others",
@@ -396,6 +397,8 @@ export const QUOTES = {
     '"Education is one thing no one can take away from you.” —- Elin Nordegren',
   experience:
     '"You cannot create experience. You must undergo it." -- Albert Camus',
+  about: '"I restore myself when I am alone." -- Marilyn Monroe',
+  skills: '"Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program." -- Linus Torvalds'
 };
 
 export const MY_LINKEDIN_URL = "https://www.linkedin.com/in/marklee425";
