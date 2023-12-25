@@ -17,11 +17,12 @@ const Floatbar = memo(({ pathname, style }: TFloatbar) => {
         <Link
           to={each.route as To}
           key={each.description as Key}
-          className={`rounded-full p-2 hover:bg-gray-200 hover:text-black ${
+          className={`rounded-full p-2 hover:bg-gray-200 hover:text-black active:opacity-[0.85] active:shadow-none ${
             pathname === each.route
               ? `${style.floatBarButtonColor} orange-secondary`
               : `bg-transparent ${style.floatBarTextColor}`
           }`}
+          data-ripple-light="true"
           title={each.description as string}
         >
           {each.icon}

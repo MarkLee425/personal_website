@@ -336,7 +336,7 @@ export const skills: Record<
     ],
   },
   {
-    title: "Data Related",
+    title: "Databases & Caches",
     icon: <Database />,
     skills: [
       {
@@ -398,11 +398,13 @@ export const QUOTES = {
   experience:
     '"You cannot create experience. You must undergo it." -- Albert Camus',
   about: '"I restore myself when I am alone." -- Marilyn Monroe',
-  skills: '"Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program." -- Linus Torvalds'
+  skills:
+    '"Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program." -- Linus Torvalds',
 };
 
 export const MY_LINKEDIN_URL = "https://www.linkedin.com/in/marklee425";
 export const MY_GITHUB_URL = "https://github.com/MarkLee425";
 export const MY_GITLAB_URL = "https://gitlab.com/leehokwong0425";
+export const MY_STACK_OVERFLOW_URL = "https://stackoverflow.com/users/18542379/mark-lee";
 
 export default getEmoji;
