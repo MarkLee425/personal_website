@@ -50,9 +50,6 @@ importers:
       nodemon:
         specifier: ^3.0.2
         version: 3.0.2
-      personal_website_backend:
-        specifier: 'link:'
-        version: 'link:'
       resend:
         specifier: ^2.0.0
         version: 2.1.0
