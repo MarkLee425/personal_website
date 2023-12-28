@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {"source": "/api/", "destination": "/api"},
+      {"source": "/api/:match*", "destination": "/api/:match*"},
+      {"source": "/web", "destination": "/"},
+      {"source": "/web/:match*", "destination": "/:match*"}
+    ]
+  }
