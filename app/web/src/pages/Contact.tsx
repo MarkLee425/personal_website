@@ -34,7 +34,7 @@ const Contact = () => {
           data: { accessToken, error },
           status,
         } = await axios.get(
-          isDev() ? "http://localhost:8000/getAccessToken" : "/getAccessToken",
+          isDev() ? "http://localhost:8000/getAccessToken" : "/api/getAccessToken",
           {
             headers: {
               Authorization: import.meta.env.VITE_API_TOKEN,
@@ -80,7 +80,7 @@ const Contact = () => {
       if (emailCounter === 0) return;
       try {
         const data = await axios.post(
-          isDev() ? "http://localhost:8000/send-email" : "/send-email",
+          isDev() ? "http://localhost:8000/send-email" : "/api/send-email",
           {
             from: formData.email,
             subject: formData.subject,
