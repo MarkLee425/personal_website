@@ -1,5 +1,3 @@
-"use client";
-
 import { Link, To } from "react-router-dom";
 import ThemeToggleButton from "../ui/buttons/ThemeToggle.button";
 import { Smile } from "../ui/react-icons";
