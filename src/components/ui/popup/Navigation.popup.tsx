@@ -18,9 +18,7 @@ type TPopup = {
 const Popup = ({ pathname, openPopup, closePopup }: TPopup) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const currentTheme = useGlobalState("theme");
-  const { textColor, popupBgColor, popupTextColor } = new ThemeColorController(
-    currentTheme as TTheme,
-  ).getThemeColor;
+  const style = new ThemeColorController(currentTheme as TTheme).getThemeColor;
   const handlelosePopUp = () => {
     closePopup();
   };
@@ -41,7 +39,7 @@ const Popup = ({ pathname, openPopup, closePopup }: TPopup) => {
           className="z-30 fixed inset-0 bg-black flex bg-opacity-20 backdrop-blur-md"
         >
           <div
-            className={`p-3 ${popupBgColor} sm:w-[25rem] xs:w-[10rem] shadow-inner border-e-emerald-600 rounded-xl py-3 fixed right-3 top-3 ${textColor}`}
+            className={`p-3 ${style.bgColor.popup} sm:w-[25rem] xs:w-[10rem] shadow-inner border-e-emerald-600 rounded-xl py-3 fixed right-3 top-3 ${style.textColor.primary}`}
           >
             <Cross
               className="fixed right-9 top-9 z-30 hover:cursor-pointer hover:text-orange-400 font-normal"
@@ -49,7 +47,7 @@ const Popup = ({ pathname, openPopup, closePopup }: TPopup) => {
               size={DEFAULT_ICON_SIZE - 5}
             />
             <ul
-              className={`w-full p-3 justify-center sm:text-lg xs:text-sm flex flex-col gap-y-5 ml-3 ${popupTextColor}`}
+              className={`w-full p-3 justify-center sm:text-lg xs:text-sm flex flex-col gap-y-5 ml-3 ${style.bgColor.popup}`}
             >
               {linkRoutes.map((each, i) => {
                 return (
@@ -61,7 +59,9 @@ const Popup = ({ pathname, openPopup, closePopup }: TPopup) => {
                       to={each.route as To}
                       key={each.description as Key}
                       className={`font-medium hover:text-orange-400 ${
-                        pathname === each.route ? "orange-default" : textColor
+                        pathname === each.route
+                          ? "orange-default"
+                          : style.textColor.primary
                       }`}
                       onClick={() => closePopup()}
                     >

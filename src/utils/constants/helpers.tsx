@@ -76,7 +76,7 @@ export const context: TContext = {
     "Software Engineer",
     "Frontend Engineer",
     "Backend Engineer",
-    "Full-stack Engineer",
+    "Full-Stack Engineer",
   ],
   introduction: "I'm Mark Lee " + getEmoji("grin"),
   description:

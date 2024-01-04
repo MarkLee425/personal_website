@@ -33,6 +33,7 @@ export default {
       }),
       fontFamily: {
         arial: ["arial"],
+        display: ["Tektur", "sans-serif"],
       },
       border: {
         "0%, 100%": { backgroundPosition: "0% 50%" },

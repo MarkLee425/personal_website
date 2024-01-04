@@ -15,7 +15,9 @@ const InitiationTypeWriter = memo(
       .getThemeColor;
     return (
       <>
-        <div className={`${style.textColor.orange.primary}`}>
+        <div
+          className={`${style.textColor.orange.primary} font-display tracking-widest`}
+        >
           <Typewriter
             options={{
               delay: 50,
