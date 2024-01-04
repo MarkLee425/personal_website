@@ -19,7 +19,7 @@ const Popup = ({ pathname, openPopup, closePopup }: TPopup) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const currentTheme = useGlobalState("theme");
   const { textColor, popupBgColor, popupTextColor } = new ThemeColorController(
-    currentTheme as TTheme
+    currentTheme as TTheme,
   ).getThemeColor;
   const handlelosePopUp = () => {
     closePopup();
@@ -53,7 +53,10 @@ const Popup = ({ pathname, openPopup, closePopup }: TPopup) => {
             >
               {linkRoutes.map((each, i) => {
                 return (
-                  <li className="items-center flex">
+                  <li
+                    className="items-center flex"
+                    key={each.description as Key}
+                  >
                     <Link
                       to={each.route as To}
                       key={each.description as Key}

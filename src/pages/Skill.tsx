@@ -23,7 +23,7 @@ const Skill = () => {
           {!isTyping && (
             <div className="absolute w-[50%] max-[880px]:w-[80%] text-center px-3 pb-32 animate-fade cursor-default">
               <p
-                className={`flex text-xs tracking-tighter font-thin justify-center ${style.descriptionTextColor} mt-[4.5rem]`}
+                className={`flex text-xs tracking-tighter font-thin justify-center ${style.textColor.tertiary} mt-[4.5rem]`}
               >
                 {QUOTES.skills}
               </p>
@@ -38,7 +38,7 @@ const Skill = () => {
                     key={each.title as string}
                   >
                     <div
-                      className={`rounded-xl flex flex-wrap pt-8 items-center justify-center align-middle justify-items-center hover:text-orange-500`}
+                      className={`rounded-xl flex flex-wrap pt-8 items-center justify-center align-middle justify-items-center ${style.textColor.orange.hover}`}
                     >
                       <h1 className="text-2xl font-bold">
                         {each.title as string}

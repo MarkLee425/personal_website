@@ -10,7 +10,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   theme: themeSliceReducer,
-  counter: counterSliceReducer
+  counter: counterSliceReducer,
 });
 
 // Implementing redux-persist to save the store state to local storage

@@ -14,14 +14,13 @@ type TThemeProviderProps = {
 
 const ThemeProvider = ({ children, options }: TThemeProviderProps) => {
   const currentTheme = useSelector((state) => state.theme.value);
-  let { bgColor, textColor } = new ThemeColorController(currentTheme)
-    .getThemeColor;
+  const style = new ThemeColorController(currentTheme).getThemeColor;
   const updateTemporaryColor = (options: TOptions): void => {
     if (options?.bgColor) {
-      bgColor = options.bgColor;
+      style.bgColor.primary = options.bgColor;
     }
     if (options?.textColor) {
-      textColor = options.textColor;
+      style.textColor.primary = options.textColor;
     }
   };
 
@@ -32,7 +31,7 @@ const ThemeProvider = ({ children, options }: TThemeProviderProps) => {
   return (
     <>
       <main
-        className={`h-[100%] min-h-screen fixed z-20 top-0 overflow-auto left-0 w-[100%] ${bgColor} ${textColor}`}
+        className={`h-[100%] min-h-screen fixed z-20 top-0 overflow-auto left-0 w-[100%] ${style.bgColor.primary} ${style.textColor.primary}`}
       >
         {children}
       </main>

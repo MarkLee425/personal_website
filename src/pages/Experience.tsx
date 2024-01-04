@@ -28,7 +28,7 @@ const Experience = () => {
             className={`absolute mt-[4.5rem] w-full px-3 pb-32 animate-fade cursor-default`}
           >
             <p
-              className={`flex text-xs tracking-tighter font-thin justify-center ${style.descriptionTextColor}`}
+              className={`flex text-xs tracking-tighter font-thin justify-center ${style.textColor.tertiary}`}
             >
               {QUOTES.experience}
             </p>
@@ -38,13 +38,15 @@ const Experience = () => {
               onMouseLeave={() => setIsHover(false)}
             >
               <p
-                className={`w-[55%] text-center text-base font-medium ${style.descriptionTextColor}`}
+                className={`w-[55%] text-center text-base font-medium ${style.textColor.tertiary}`}
               >
                 With the variety of experience being a skilled software
                 engineer, I am dedicated to creating{" "}
                 <strong
                   className={`${
-                    isHover ? "text-orange-400" : style.textColor
+                    isHover
+                      ? style.textColor.orange.primary
+                      : style.textColor.primary
                   } max-[1350px]:text-orange-400`}
                 >
                   robust
@@ -52,7 +54,9 @@ const Experience = () => {
                 and{" "}
                 <strong
                   className={`${
-                    isHover ? "text-orange-400" : style.textColor
+                    isHover
+                      ? style.textColor.orange.primary
+                      : style.textColor.primary
                   } max-[1350px]:text-orange-400`}
                 >
                   efficient
@@ -60,7 +64,9 @@ const Experience = () => {
                 solutions, and also obsessed with{" "}
                 <strong
                   className={`${
-                    isHover ? "text-orange-400" : style.textColor
+                    isHover
+                      ? style.textColor.orange.primary
+                      : style.textColor.primary
                   } max-[1350px]:text-orange-400`}
                 >
                   elegant coding style

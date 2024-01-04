@@ -1,7 +1,5 @@
 import { useGlobalState } from "../../../hooks";
-import {
-  useAppDispatch as useDispatch,
-} from "../../../redux/hooks";
+import { useAppDispatch as useDispatch } from "../../../redux/hooks";
 import { switchThemeMode } from "../../../redux/slices";
 import { DarkMode, LightMode } from "../react-icons";
 

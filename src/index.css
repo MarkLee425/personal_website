@@ -16,25 +16,25 @@ body {
 
 @layer utilities {
   .dark {
-    @apply bg-[#0d0d0d] text-[#ffffff]
+    @apply bg-[#0d0d0d] text-[#ffffff];
   }
   .light {
-    @apply bg-[#ffffff] text-[#000000]
+    @apply bg-[#ffffff] text-[#000000];
   }
   .center {
-    @apply flex items-center align-middle text-center justify-center
+    @apply flex items-center align-middle text-center justify-center;
   }
   .col {
-    @apply flex flex-col
+    @apply flex flex-col;
   }
   .row {
-    @apply flex flex-row
+    @apply flex flex-row;
   }
   .orange-default {
-    @apply text-orange-400
+    @apply text-orange-400;
   }
   .orange-secondary {
-    @apply text-orange-600
+    @apply text-orange-600;
   }
 }
 

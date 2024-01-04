@@ -1,7 +1,7 @@
 import Tab from "@mui/material/Tab";
 
 function samePageLinkNavigation(
-  event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
 ) {
   if (
     event.defaultPrevented ||

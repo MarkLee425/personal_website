@@ -1,9 +1,9 @@
 import { useOutletContext } from "react-router-dom";
-import { TThemeProps } from "../controllers/ThemeColor.controller";
+import { ThemeProps } from "../controllers/ThemeColor.controller";
 
 type ContextType = {
   theme: TTheme;
-  style: TThemeProps;
+  style: ThemeProps;
 };
 
 export function useTheme() {

@@ -83,13 +83,31 @@ export const context: TContext = {
     "Expertise on software development, frontend with React and backend with Java SpringBoot / Node in TypeScript. Interest in Infrastructuring development and DevOps operations.",
   copyright: "Copyright ©2023 Mark Lee.",
   websiteWithHeart: "This website is made with " + getEmoji("heart"),
-  aboutTitle: "Who is Mark?",
   aboutIntroduction:
     "Mark is a self-taught and highly motivated software engineer with enthusiasm and passion for software development.",
   aboutGoal:
     "To leverage my skills and expertise as a frontend, backend, or full-stack developer.",
   aboutDescription:
     "With extensive experience in programming using ReactJS and NodeJS, I specialize in JavaScript and TypeScript. Additionally, I have a solid understanding of both SQL and NoSQL databases, allowing me to efficiently handle data management tasks. Furthermore, I possess a keen interest and proficiency in infra engineering, enabling me to tackle complex infrastructure challenges. I'm excited to embark on new projects and contribute to the dynamic world of software development. Feel free to explore my website and get in touch if you'd like to collaborate or learn more about my work!",
+  aboutTypeWriter: "About Me",
+  aboutTitle: "Who am I?",
+  aboutExpertise: "Expertise",
+  aboutSkillsButton: "Get In Touch",
+  aboutResumeButton: "View My Resume",
+  contactTypeWriter: "Contact Me",
+  contactTitle: "Feel free to reach me for any great opportunities!",
+  contactQuestion: "Wanna Get in Touch?",
+  contactAnswer: "Let's Connect Together!",
+  contactToken: "Remaining Email Tokens: ",
+  emailTitle: "Email Me",
+  emailSend: "Send",
+  "404ErrorTitle": "Page Not Found",
+  "404ErrorDescription":
+    "The page that you are looking for might be renamed or removed, or might be never existed on this planet.",
+  backButton: "Back To Home",
+  errorTitle: "Oops!",
+  errorContent: "Something went wrong.",
+  "404ErrorContent": "Sorry, an unexpected error has occurred.",
 };
 
 export const educationBio: TEducationBio = {
@@ -405,6 +423,7 @@ export const QUOTES = {
 export const MY_LINKEDIN_URL = "https://www.linkedin.com/in/marklee425";
 export const MY_GITHUB_URL = "https://github.com/MarkLee425";
 export const MY_GITLAB_URL = "https://gitlab.com/leehokwong0425";
-export const MY_STACK_OVERFLOW_URL = "https://stackoverflow.com/users/18542379/mark-lee";
+export const MY_STACK_OVERFLOW_URL =
+  "https://stackoverflow.com/users/18542379/mark-lee";
 
 export default getEmoji;

@@ -1,9 +1,73 @@
 import { useCallback, useState } from "react";
 import AboutTypeWriter from "../components/typewriter/PagesTitle.typewriter";
-import { QUOTES } from "../utils/constants";
+import { QUOTES, context } from "../utils/constants";
 import { useTheme } from "../hooks";
 import buttons from "../components/ui/buttons";
 import { Link } from "react-router-dom";
+import { ThemeProps } from "../controllers/ThemeColor.controller";
+
+const AboutPageDescription = ({
+  onFocus,
+  style,
+}: {
+  onFocus: boolean;
+  style: ThemeProps;
+}) => (
+  <>
+    <p>
+      <strong
+        className={`text-base ${style.textColor.primary} ${
+          onFocus ? style.textColor.orange.primary : ""
+        }`}
+      >
+        I'm MARK LEE
+      </strong>
+      , a self-taught but dedicated and passionate{" "}
+      <strong
+        className={`text-base ${style.textColor.primary} ${
+          onFocus ? style.textColor.orange.primary : ""
+        }`}
+      >
+        Software Engineer
+      </strong>
+    </p>
+    <p className="mt-2">
+      Interested in{" "}
+      <strong
+        className={`text-base ${style.textColor.primary} ${
+          onFocus ? style.textColor.orange.primary : ""
+        }`}
+      >
+        Distributed Network & DevOps Operations
+      </strong>
+      .
+    </p>
+    <p className="mt-2">
+      Obsessed in learning{" "}
+      <strong
+        className={`text-base ${style.textColor.primary} ${
+          onFocus ? style.textColor.orange.primary : ""
+        }`}
+      >
+        New Technologies
+      </strong>
+      .
+    </p>
+  </>
+);
+
+const ExpertiseGroup = () => (
+  <>
+    <div className="flex flex-row gap-x-2 max-[500px]:gap-x-4 justify-center">
+      <buttons.FrontendButton />
+      <buttons.BackendButton />
+    </div>
+    <div className="flex flex-row gap-x-2 max-[500px]:gap-x-4 justify-center">
+      <buttons.FullStackButton />
+      <buttons.DatabaseButton />
+    </div>
+  </>
+);
 
 const About = () => {
   const { style } = useTheme();
@@ -17,12 +81,15 @@ const About = () => {
         className="w-full flex absolute mt-48 justify-center over-x-hidden"
       >
         <div className="absolute container items-center justify-center flex">
-          <AboutTypeWriter text={"About Me"} finishHandler={finishTyping} />
+          <AboutTypeWriter
+            text={context.aboutTypeWriter as string}
+            finishHandler={finishTyping}
+          />
         </div>
         {!isTyping && (
           <div className="animate-fade absolute mt-[4.5rem] w-full px-3 pb-32 cursor-default">
             <p
-              className={`font-["arial"] font-thin flex text-xs tracking-tighter justify-center ${style.descriptionTextColor}`}
+              className={`font-["arial"] font-thin flex text-xs tracking-tighter justify-center ${style.textColor.tertiary}`}
             >
               {QUOTES.about}
             </p>
@@ -36,89 +103,50 @@ const About = () => {
                   <h1
                     className={`pb-16 text-4xl font-serif font-extrabold tracking-wider text-center`}
                   >
-                    Who am I?
+                    {context.aboutTitle as string}
                   </h1>
                   <div
-                    className={`w-[80%] text-md ${style.descriptionTextColor}`}
+                    className={`w-[80%] text-md ${style.textColor.tertiary}`}
                   >
                     <div className="ml-4">
-                      <p>
-                        <strong
-                          className={`text-base ${style.textColor} ${
-                            onFocus ? "text-orange-400" : ""
-                          }`}
-                        >
-                          I'm MARK LEE
-                        </strong>
-                        , a self-taught but dedicated and passionate{" "}
-                        <strong
-                          className={`text-base ${style.textColor} ${
-                            onFocus ? "text-orange-400" : ""
-                          }`}
-                        >
-                          Software Engineer
-                        </strong>
-                      </p>
-                      <p className="mt-2">
-                        Interested in{" "}
-                        <strong
-                          className={`text-base ${style.textColor} ${
-                            onFocus ? "text-orange-400" : ""
-                          }`}
-                        >
-                          Distributed Network & DevOps Operations
-                        </strong>
-                        .
-                      </p>
-                      <p className="mt-2">
-                        Obsessed in learning{" "}
-                        <strong
-                          className={`text-base ${style.textColor} ${
-                            onFocus ? "text-orange-400" : ""
-                          }`}
-                        >
-                          New Technologies
-                        </strong>
-                        .
-                      </p>
+                      <AboutPageDescription onFocus={onFocus} style={style} />
                     </div>
                     <h1
-                      className={`text-2xl font-sans text-center pb-8 pt-20 font-bold ${style.textColor} tracking-wider`}
+                      className={`text-2xl font-sans text-center pb-8 pt-20 font-bold ${style.textColor.primary} tracking-wider`}
                     >
-                      Expertise
+                      {context.aboutExpertise as string}
                     </h1>
                     <div
                       className={`flex max-[500px]:flex-col max-[500px]:gap-y-4 max-[500px]:gap-x-4 justify-evenly w-full ${
-                        onFocus ? "text-orange-400" : ""
+                        onFocus ? style.textColor.orange.primary : ""
                       }`}
                     >
-                      <div className="flex flex-row gap-x-2 max-[500px]:gap-x-4 justify-center">
-                        <buttons.FrontendButton />
-                        <buttons.BackendButton />
-                      </div>
-                      <div className="flex flex-row gap-x-2 max-[500px]:gap-x-4 justify-center">
-                        <buttons.FullStackButton />
-                        <buttons.DatabaseButton />
-                      </div>
+                      <ExpertiseGroup />
                     </div>
                     <h2
-                      className={`text-2xl font-sans text-center pb-3 pt-20 font-bold ${style.textColor} tracking-wider`}
+                      className={`text-2xl font-sans text-center pb-3 pt-20 font-bold ${style.textColor.primary} tracking-wider`}
                     >
                       Some may describe Me as:
                     </h2>
                     <ul className="list-disc ml-10">
                       <li>
-                        <strong className={`text-base text-orange-400`}>
+                        <strong
+                          className={`text-base ${style.textColor.orange.primary}`}
+                        >
                           Fast & Diligent learner
                         </strong>
                       </li>
                       <li>
                         <p>
-                          <strong className={`text-base text-orange-400`}>
+                          <strong
+                            className={`text-base ${style.textColor.orange.primary}`}
+                          >
                             Dedicated
                           </strong>{" "}
                           &{" "}
-                          <strong className={`text-base text-orange-400`}>
+                          <strong
+                            className={`text-base ${style.textColor.orange.primary}`}
+                          >
                             Focus
                           </strong>{" "}
                           engineer
@@ -127,7 +155,9 @@ const About = () => {
                       <li>
                         <p>
                           Technical focused{" "}
-                          <strong className={`text-base text-orange-400`}>
+                          <strong
+                            className={`text-base ${style.textColor.orange.primary}`}
+                          >
                             Problem-solver
                           </strong>
                         </p>
@@ -135,18 +165,24 @@ const About = () => {
                       <li>
                         <p>
                           Good{" "}
-                          <strong className={`text-base text-orange-400`}>
+                          <strong
+                            className={`text-base ${style.textColor.orange.primary}`}
+                          >
                             Listener
                           </strong>
                         </p>
                       </li>
                       <li>
-                        <strong className={`text-base text-orange-400`}>
+                        <strong
+                          className={`text-base ${style.textColor.orange.primary}`}
+                        >
                           Multitask expert
                         </strong>
                       </li>
                       <li>
-                        <strong className={`text-base text-orange-400`}>
+                        <strong
+                          className={`text-base ${style.textColor.orange.primary}`}
+                        >
                           Collaborative engineer
                         </strong>
                       </li>
@@ -163,28 +199,11 @@ const About = () => {
                 </div>
               </div>
               <div className="w-full mt-10 flex">
-                {/* <PrimaryLinkButton
-                to="contact"
-                description="Get In Touch"
-                className="w-[50%] py-4 rounded-bl-[4rem] bg-orange-100 hover:bg-orange-200 text-orange-500 border-b-purple-500 border-b-1 border-l-1 border-l-purple-500"
-                element={{ text: "Get In Touch" }}
-              />
-              <SecondaryLinkButton
-                to="/files/resume_LeeHoKwong.pdf"
-                description="Resume"
-                download={true}
-                target="_blank"
-                className="w-[50%] py-4 rounded-br-[4rem] bg-orange-500 hover:bg-orange-600 text-white border-b-purple-500 border-b-1 border-r-1 border-r-purple-500"
-                element={{
-                  text: "View My Resume",
-                  icon: <Download className="ml-1" size={15} />,
-                }}
-              /> */}
                 <Link
                   to={"/contact"}
-                  className="justify-center text-center w-[50%] py-4 rounded-bl-[4rem] bg-orange-100 hover:bg-orange-200 text-orange-500 border-b-purple-500 border-b-1 border-l-1 border-l-purple-500"
+                  className={`justify-center text-center w-[50%] py-4 rounded-bl-[4rem] bg-orange-100 hover:bg-orange-200 ${style.textColor.orange.primary} border-b-purple-500 border-b-1 border-l-1 border-l-purple-500`}
                 >
-                  Get In Touch
+                  {context.aboutSkillsButton as string}
                 </Link>
                 <Link
                   to={"/files/resume_LeeHoKwong.pdf"}
@@ -192,7 +211,7 @@ const About = () => {
                   download={true}
                   target="_blank"
                 >
-                  View My Resume
+                  {context.aboutResumeButton as string}
                 </Link>
               </div>
             </div>

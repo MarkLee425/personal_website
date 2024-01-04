@@ -9,6 +9,7 @@ import ContactResponsePage from "../components/ContactResponsePage";
 import { useAppDispatch as useDispatch } from "../redux/hooks";
 import { decrement } from "../redux/slices";
 import EmailForm from "../components/EmailForm";
+import { context } from "../utils/constants";
 
 const Contact = () => {
   const { style } = useTheme();
@@ -34,12 +35,14 @@ const Contact = () => {
           data: { accessToken, error },
           status,
         } = await axios.get(
-          isDev() ? "http://localhost:8000/getAccessToken" : import.meta.env.VITE_BACKEND_PATH + "/api/getAccessToken",
+          isDev()
+            ? "http://localhost:8000/getAccessToken"
+            : import.meta.env.VITE_BACKEND_PATH + "/api/getAccessToken",
           {
             headers: {
               Authorization: import.meta.env.VITE_API_TOKEN,
             },
-          }
+          },
         );
         if (status === 400 || status === 401) return { error, status };
 
@@ -73,14 +76,16 @@ const Contact = () => {
       />,
       {
         pretty: true,
-      }
+      },
     );
 
     const sendEmail = async () => {
       if (emailCounter === 0) return;
       try {
         const data = await axios.post(
-          isDev() ? "http://localhost:8000/send-email" : import.meta.env.VITE_BACKEND_PATH + "/api/send-email",
+          isDev()
+            ? "http://localhost:8000/send-email"
+            : import.meta.env.VITE_BACKEND_PATH + "/api/send-email",
           {
             from: formData.email,
             subject: formData.subject,
@@ -91,7 +96,7 @@ const Contact = () => {
               Authorization: accessToken,
               "Content-Type": "application/json",
             },
-          }
+          },
         );
         setIsLoading(false);
         setIsSuccess(true);
@@ -119,7 +124,7 @@ const Contact = () => {
     (
       e:
         | React.ChangeEvent<HTMLInputElement>
-        | React.ChangeEvent<HTMLTextAreaElement>
+        | React.ChangeEvent<HTMLTextAreaElement>,
     ) => {
       setFormData({
         ...formData,
@@ -133,7 +138,7 @@ const Contact = () => {
         <div id="title" className="w-full flex absolute mt-24 justify-center">
           <div className="absolute container items-center justify-center flex">
             <ContactTypeWriter
-              text={"Contact Me"}
+              text={context.contactTypeWriter as string}
               finishHandler={finishTyping}
             />
           </div>
@@ -144,8 +149,8 @@ const Contact = () => {
             className={`absolute mt-[4.5rem] w-full px-3 animate-fade cursor-default`}
           >
             <div className="mt-24 flex flex-col justify-center max-[225px]:mt-36 pb-28 ">
-              <p className={`${style.descriptionTextColor}`}>
-                Feel free to reach me for any great opportunities!
+              <p className={`${style.textColor.tertiary}`}>
+                {context.contactTitle as string}
               </p>
 
               {isSuccess ? (
@@ -156,24 +161,29 @@ const Contact = () => {
                 <ContactResponsePage errorCode={406} />
               ) : (
                 <div className="flex flex-row px-4">
-                  <div className="flex flex-col w-[40%] translate-x-[5%] justify-center text-left py-8 pl-4 text-orange-400 text-5xl">
+                  <div
+                    className={`flex flex-col w-[40%] translate-x-[5%] justify-center text-left py-8 pl-4 ${style.textColor.orange.primary} text-5xl max-[800px]:hidden`}
+                  >
                     <h1
                       className={`ml-8 max-w-[700px] font-bold tracking-wider mb-8`}
                     >
-                      Wanna Get in Touch?
+                      {context.contactQuestion as string}
                     </h1>
                     <h1
                       className={`ml-8 max-w-[700px] font-bold tracking-wider`}
                     >
-                      Let's Connect Together!
+                      {context.contactAnswer as string}
                     </h1>
                     <div
-                      className={`text-sm ${style.textColor} mt-16 text-center`}
+                      className={`text-sm ${style.textColor.primary} mt-16 text-center`}
                     >
-                      <p>Remaining Email Tokens: {emailCounter as number}</p>
+                      <p>
+                        {(context.contactToken as string) +
+                          (emailCounter as number)}
+                      </p>
                     </div>
                   </div>
-                  <div className="border-2 rounded-2xl flex flex-col w-[35%] mt-12 translate-x-[30%] justify-center shadow-lg border-purple-500  shadow-purple-500">
+                  <div className="border-2 rounded-2xl flex flex-col w-[35%] mt-12 translate-x-[30%] justify-center shadow-lg border-purple-500  shadow-purple-500 max-[800px]:w-[100%] max-[800px]:translate-x-0">
                     <EmailForm
                       submitHandler={submitFormHandler}
                       onChangeHandler={emailOnChangeHandler}

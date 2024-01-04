@@ -9,9 +9,9 @@ import { Key, memo, useState } from "react";
 import Popup from "../ui/popup/Navigation.popup";
 import { createPortal } from "react-dom";
 import { linkRoutes } from "./constants";
-import { TThemeProps } from "../../controllers/ThemeColor.controller";
+import { ThemeProps } from "../../controllers/ThemeColor.controller";
 
-type TNavbar = { pathname: string; style: TThemeProps };
+type TNavbar = { pathname: string; style: ThemeProps };
 
 const ButtonGroup = () => (
   <div className="ml-10 flex space-x-3 align-middle">
@@ -26,7 +26,7 @@ const Navbar = memo(function Navbar({ pathname, style }: TNavbar) {
   const [openPopup, setOpenPopup] = useState(false);
   const handleRemovePopUp = () => setOpenPopup(false);
   const buttonClickHandler = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ) => {
     e.preventDefault();
     setOpenPopup(true);
@@ -35,19 +35,19 @@ const Navbar = memo(function Navbar({ pathname, style }: TNavbar) {
   return (
     <>
       <div
-        className={`${style.navbarBgColor} fixed flex ${style.navigationBorderColor} border-b-[0.5px] w-full z-30 py-3 px-5 gap-x-8 items-center font-semibold text-sm leading-6 font-sans`}
+        className={`${style.bgColor.navbar} fixed flex ${style.borderColor.navigation} border-b-[0.5px] w-full z-30 py-3 px-5 gap-x-8 items-center font-semibold text-sm leading-6 font-sans`}
       >
         {/* ICON */}
         <Link
           to={"/"}
           id="face_ico"
-          className="hover:cursor-pointer hover:text-orange-400 border-2"
+          className={`hover:cursor-pointer ${style.textColor.orange.hover} ${style.textColor.primary} border-2`}
         >
           {/* TODO: change the icon */}
           <Smile size={20} />
         </Link>
         <div
-          className={`fixed px-5 items-center text-center hidden lg:flex lg:fixed lg:right-3 w-fit divide-x-2 justify-center align-middle tracking-normal ${style.navbarTextColor} font-medium`}
+          className={`fixed px-5 items-center text-center hidden lg:flex lg:fixed lg:right-3 w-fit divide-x-2 justify-center align-middle tracking-normal ${style.textColor.navbar} font-medium`}
         >
           {/* Navlinks */}
           <div className="navlink">
@@ -59,8 +59,8 @@ const Navbar = memo(function Navbar({ pathname, style }: TNavbar) {
                   key={each.description as Key}
                   className={`${
                     pathname === each.route
-                      ? "text-orange-400"
-                      : style.navbarTextColor
+                      ? style.textColor.orange
+                      : style.textColor.navbar
                   } px-3 hover:text-orange-400`}
                   title={each.description as string}
                 >
@@ -83,7 +83,7 @@ const Navbar = memo(function Navbar({ pathname, style }: TNavbar) {
             openPopup={openPopup}
             closePopup={handleRemovePopUp}
           />,
-          document.body
+          document.body,
         )}
       </div>
     </>

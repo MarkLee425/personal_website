@@ -12,12 +12,14 @@ const Home = () => {
   return (
     <>
       <div
-        className={`z-0 center font-["arial"] font-bold text-2xl h-full flex-col gap-y-5 hover:cursor-default w-[100%] lg:w-[50%] overflow-hidden ${style.leftBgColor}`}
+        className={`z-0 center font-["arial"] font-bold text-2xl h-full flex-col gap-y-5 hover:cursor-default w-[100%] lg:w-[50%] overflow-hidden ${style.bgColor.left}`}
       >
         <Initiation />
-        <p className="max-w-md text-6xl">{context.introduction as string}</p>
+        <p className={`max-w-md text-6xl ${style.textColor.primary}`}>
+          {context.introduction as string}
+        </p>
         <p
-          className={`max-w-md mx-3 text-sm lg:text-xs font-light ${style.descriptionTextColor} text-justify tracking-wider`}
+          className={`max-w-md mx-3 text-sm lg:text-xs font-light ${style.textColor.tertiary} text-justify tracking-wider`}
         >
           {context.description as string}
         </p>

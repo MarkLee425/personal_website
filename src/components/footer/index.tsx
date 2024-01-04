@@ -14,7 +14,7 @@ const Footer = memo(({ ...rest }: React.HTMLAttributes<HTMLDivElement>) => {
           <p className="block-left text-gray-400">{context.copyright}</p>
         </div> */}
         <div
-          className={`absolute ${style.textColor} inset-x-0 bottom-1 flex flex-wrap justify-center`}
+          className={`absolute ${style.textColor.primary} inset-x-0 bottom-1 flex flex-wrap justify-center`}
           {...rest}
         >
           <p className="block-right text-center text-gray-400">

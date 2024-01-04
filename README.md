@@ -26,10 +26,10 @@ For more packages, please visit the package.json file.
 ## Get Started
 
 1. Make sure that you have installed pnpm.
-2. ```cd personal_website```
-3. ```pnpm install```
-4. ```pnpm dev``` (for local development)
+2. `cd personal_website`
+3. `pnpm install`
+4. `pnpm dev` (for local development)
 
-PS: 
+PS:
 For local development, port will be 3000.
 For production, port will be 5678.

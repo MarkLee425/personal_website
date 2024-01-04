@@ -1,4 +1,11 @@
-import { About, Certificate, Code, Contact, Home, Work } from "../ui/react-icons";
+import {
+  About,
+  Certificate,
+  Code,
+  Contact,
+  Home,
+  Work,
+} from "../ui/react-icons";
 
 type LinkRoute = Record<"description" | "route" | "icon", string | JSX.Element>;
 

@@ -10,7 +10,7 @@ const Education = () => {
   const [isTyping, setIsTyping] = useState(true);
   const [isHover, setIsHover] = useState(false);
   const finishTyping = useCallback(() => setIsTyping(false), [setIsTyping]);
-  
+
   return (
     <>
       <div className="mt-48 overflow-x-hidden">
@@ -30,24 +30,28 @@ const Education = () => {
             onMouseLeave={() => setIsHover(false)}
           >
             <p
-              className={`flex text-xs tracking-tighter font-thin justify-center ${style.descriptionTextColor}`}
+              className={`flex text-xs tracking-tighter font-thin justify-center ${style.textColor.tertiary}`}
             >
               {QUOTES.education}
             </p>
             <div className="mt-10 mb-20 flex justify-center">
               <p
-                className={`w-[55%] text-base font-medium ${style.descriptionTextColor}`}
+                className={`w-[55%] text-base font-medium ${style.textColor.tertiary}`}
               >
                 My educational journey has been a transformative experience,
                 marked by{" "}
                 <strong
-                  className={`${isHover ? "text-orange-400" : style.textColor} max-[1350px]:text-orange-400`}
+                  className={`${
+                    isHover ? "text-orange-400" : style.textColor.primary
+                  } max-[1350px]:text-orange-400`}
                 >
                   discipline
                 </strong>{" "}
                 &{" "}
                 <strong
-                  className={`${isHover ? "text-orange-400" : style.textColor} max-[1350px]:text-orange-400`}
+                  className={`${
+                    isHover ? "text-orange-400" : style.textColor.primary
+                  } max-[1350px]:text-orange-400`}
                 >
                   personal growth
                 </strong>

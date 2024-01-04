@@ -21,7 +21,7 @@ const PrimaryLinkButton = memo((props: TPrimaryLinkButton & LinkProps) => {
       <Link
         to={to}
         aria-describedby={description && description}
-        className={`rounded-md px-2.5 py-1 text-sm w-fit flex items-center align-middle ${style.primaryButtonBgColor} ${style.primaryButtonTextColor} font-normal tracking-wider ${style.hoverPrimaryButtonBgColor} hover:ease-in hover:duration-75`}
+        className={`rounded-md px-2.5 py-1 text-sm w-fit flex items-center align-middle ${style.bgColor.buttons.primary.primary} ${style.textColor.buttons.primary} font-normal tracking-wider ${style.bgColor.buttons.primary.hover} hover:ease-in hover:duration-75`}
         {...rest}
       >
         {element?.text && <p>{element.text}</p>}

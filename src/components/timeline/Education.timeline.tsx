@@ -9,32 +9,36 @@ const EducationTimeline = () => {
   const bioToArray = Object.entries(educationBio);
   return (
     <div className="min-[1000px]:w-[50%] md:w-[70%] sm:w-[80%] min-[400px]:w-[90%] min-[300px]:w-[95%] text-justify overflow-x-hidden">
-      <ol className={`z-20 relative border-s ${style.timelineColor} h-fit`}>
+      <ol
+        className={`z-20 relative border-s ${style.borderColor.timeline} h-fit`}
+      >
         <div id="space" className="w-screen py-10" />
         {bioToArray.map(([key, value], i) => (
           <li
             className={`border ${
-              value?.end ? "" : `border-2 ${style.blockBorderColor}`
+              value?.end ? "" : `border-2 ${style.borderColor.block.primary}`
             } min-[1350px]:blur-[3px] hover:blur-none rounded-xl ms-4 mb-20 p-0.5 hover:border-none hover:animate-borderGradient hover:bg-gradient-to-r hover:from-purple-500 hover:to-orange-400 hover:bg-[length:100%_100%] hover:inline-block hover:bg-white`}
             key={i}
           >
             <div
-              className={`${style.bgColor} rounded-xl block pt-5 pb-8 pl-5 pr-8 h-full w-full`}
+              className={`${style.bgColor.primary} rounded-xl block pt-5 pb-8 pl-5 pr-8 h-full w-full`}
             >
               <div
-                className={`z-30 absolute p-1.5 rounded-full mt-1.5 -start-1.5 border ${style.dotSecondaryBackgroundColor}`}
+                className={`z-30 absolute p-1.5 rounded-full mt-1.5 -start-1.5 border ${style.bgColor.dot.secondary}`}
               />
               <time
                 className={`mb-4 text-sm font-normal leading-none ${
-                  value?.end ? style.secondaryTextColor : "text-orange-500"
-                } hover:text-orange-400 flex`}
+                  value?.end
+                    ? style.textColor.secondary
+                    : style.textColor.orange.primary
+                } ${style.textColor.orange.hover} flex`}
               >
                 {value?.end ? `${value.start}- ${value.end}` : "Present"}
               </time>
               {key === "certificate" ? (
                 <Link
-                to={value.href}
-                  className={`text-lg font-semibold ${style.textColor} hover:text-orange-400 w-fit flex leading-5 justify-center align-middle items-center`}
+                  to={value.href}
+                  className={`text-lg font-semibold ${style.textColor.primary} ${style.textColor.orange.hover} w-fit flex leading-5 justify-center align-middle items-center`}
                 >
                   {value.title}
                   {key === "certificate" ? (
@@ -46,7 +50,7 @@ const EducationTimeline = () => {
               ) : (
                 <Link
                   to={value.href}
-                  className={`text-lg font-semibold ${style.textColor} hover:text-orange-400 w-fit flex leading-5 justify-center align-middle items-center`}
+                  className={`text-lg font-semibold ${style.textColor.primary} ${style.textColor.orange.hover} w-fit flex leading-5 justify-center align-middle items-center`}
                 >
                   {value.title}
                   {key === "certificate" ? (
@@ -59,7 +63,9 @@ const EducationTimeline = () => {
 
               {value?.issued_at && (
                 <p
-                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 ${value?.major ? "" : "mb-2"}`}
+                  className={`text-xs font-thin ${style.textColor.quaternary} ${
+                    style.textColor.orange.hover
+                  } flex mt-1.5 ${value?.major ? "" : "mb-2"}`}
                 >
                   Issued At: {value.issued_at}
                 </p>
@@ -68,7 +74,7 @@ const EducationTimeline = () => {
               {value?.major && (
                 <Link
                   to={value.major.href ?? ""}
-                  className={`text-xs font-thin ${style.subTextColor} hover:text-orange-400 flex mt-1.5 w-fit mb-2`}
+                  className={`text-xs font-thin ${style.textColor.quaternary} ${style.textColor.orange.hover} flex mt-1.5 w-fit mb-2`}
                 >
                   <p>{value.major.name}</p>
                 </Link>
@@ -76,7 +82,7 @@ const EducationTimeline = () => {
 
               {value.description.map((each) => (
                 <p
-                  className={`text-justify font-normal text-sm ${style.descriptionTextColor} pt-3`}
+                  className={`text-justify font-normal text-sm ${style.textColor.tertiary} pt-3`}
                   key={each}
                 >
                   {each}

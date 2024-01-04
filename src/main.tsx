@@ -63,5 +63,5 @@ createRoot(document.getElementById("root")!).render(
         </ThemeProvider>
       </PersistGate>
     </ReduxProvider>
-  </StrictMode>
+  </StrictMode>,
 );
