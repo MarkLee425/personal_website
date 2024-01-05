@@ -157,6 +157,24 @@ export const educationBio: TEducationBio = {
 };
 
 export const experienceBio: TExperienceBio = {
+  current: {
+    company: "The Hong Kong Polytechnic University | Hong Kong",
+    position: "Project Administrative Assistant | Department of Electrical & Electronic Engineering",
+    description: ["Working hard to finish the project :)"],
+    start: "04 Jan 2024",
+    startMonth: 1,
+    startYear: 2024,
+    href: "https://www.polyu.edu.hk/eee/",
+    techStack: [
+      "JavaScript",
+      "ReactJS",
+      "AWS",
+      "MySQL",
+      "Python",
+      "Flask",
+      "Docker",
+    ],
+  },
   past: [
     {
       company: "Cathay Pacific Hackathon | Hong Kong",
@@ -409,6 +427,8 @@ export const skills: Record<
     ],
   },
 ];
+
+export const BACKEND_LOCAL_URL = "http://localhost:8000";
 
 export const QUOTES = {
   education:

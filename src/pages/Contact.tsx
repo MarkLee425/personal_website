@@ -36,7 +36,7 @@ const Contact = () => {
           status,
         } = await axios.get(
           isDev()
-            ? "http://localhost:8000/getAccessToken"
+            ? context.BACKEND_LOCAL_URL + "/getAccessToken"
             : import.meta.env.VITE_BACKEND_PATH + "/api/getAccessToken",
           {
             headers: {
@@ -84,7 +84,7 @@ const Contact = () => {
       try {
         const data = await axios.post(
           isDev()
-            ? "http://localhost:8000/send-email"
+            ? context.BACKEND_LOCAL_URL + "/send-email"
             : import.meta.env.VITE_BACKEND_PATH + "/api/send-email",
           {
             from: formData.email,
